@@ -29,7 +29,7 @@ Debating if I want this functionality in main or reports or in its own utils cla
 
 Created a FileProcessor class that will process the file in and utilize the Driver,Trip, and Reports class, also created an inputStream for reading the files.
 
-I need the file processing class to:
+### ReportProcessor class
 
 A. Read a file
 B. Determine all the key drivers without duplicates
@@ -37,6 +37,5 @@ C. Determine the trips that the key drivers may have
 D. Record everything on Reports
 E. Spit our results on console or in output file... or both.
 
-Changing FileProcessor to ReportProcessor
 
 
