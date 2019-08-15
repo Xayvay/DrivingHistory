@@ -3,6 +3,7 @@
 Driving History is a java application that will process an input file (.txt) with information based on a driver/s. The application will filter through the list of information and print out a new file with the driver/s name,how many miles they have drove, and their average speed.
 
 # Initial Key Observations
+
 - The code will process an input file.
 - Each line in the input file will start with a command. 
 - There are two possible commands:
@@ -14,3 +15,11 @@ Driving History is a java application that will process an input file (.txt) wit
 - Generate a report containing each driver with total miles driven and average speed. 
 - Sort the output by most miles driven to least. 
 - Round miles and miles per hour to the nearest integer.
+
+# Coding Process
+
+From first glance it seems like I need a:
+- Main Class
+- Driver Class
+- Trip Class
+- Report Class
