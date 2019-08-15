@@ -31,11 +31,13 @@ Created a FileProcessor class that will process the file in and utilize the Driv
 
 ### ReportProcessor class
 
-A. Read a file
-B. Determine all the key drivers without duplicates
-C. Determine the trips that the key drivers may have
-D. Record everything on Reports
-E. Spit our results on console or in output file... or both.
+After changing fileprocessor class to reportProcessor I believe it needs to have:
+
+- Read a file
+- Determine all the key drivers without duplicates
+- Determine the trips that the key drivers may have
+- Record everything on Reports
+- Spit our results on console or in output file... or both.
 
 
 
