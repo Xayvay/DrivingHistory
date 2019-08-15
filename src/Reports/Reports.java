@@ -4,6 +4,7 @@ package Reports;
  *
  * <h1>Reports</h1>
  * The Reports Object, meant for creating instances of the report.
+ * Will Piece together the Driver history reports for processing
  *
  * @author  Xavier Shelton
  * @version 1.0

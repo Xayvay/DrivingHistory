@@ -6,6 +6,7 @@ import java.util.Set;
  *
  * <h1>Driver</h1>
  * The Driver Object, meant for creating instances of a driver.
+ * Will set driver information for each driver
  *
  * @author  Xavier Shelton
  * @version 1.0
