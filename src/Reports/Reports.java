@@ -1,5 +1,7 @@
 package Reports;
 
+import java.util.ArrayList;
+
 /**
  *
  * <h1>Reports</h1>
@@ -11,7 +13,9 @@ package Reports;
  * @since   2019-08-15
  */
 public class Reports {
-    Reports(){
-
+    private ArrayList<String> drivers = new ArrayList<String>();
+    public Reports(ArrayList<String> drivers){
+        this.drivers = drivers;
     }
+
 }
