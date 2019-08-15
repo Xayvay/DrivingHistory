@@ -23,8 +23,19 @@ From first glance it seems like I need a:
 - Driver Class
 - Trip Class
 - Report Class
+
 Now going back to my initial key observations it seems like I want to be able to process an input file.
 Debating if I want this functionality in main or reports or in its own utils class called file processor or something of that nature.
 
-Created a FileProcessing class that will process the file in and utilize the reports class, and created an inputStream for reading the files.
+Created a FileProcessor class that will process the file in and utilize the Driver,Trip, and Reports class, also created an inputStream for reading the files.
+
+I need the file processing class to:
+A. Read a file
+B. Determine all the key drivers without duplicates
+C. Determine the trips that the key drivers may have
+D. Record everything on Reports
+E. Spit our results on console or in output file... or both.
+
+Changing FileProcessor to ReportProcessor
+
 
