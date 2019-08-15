@@ -31,7 +31,8 @@ Created a FileProcessor class that will process the file in and utilize the Driv
 
 ### ReportProcessor class
 
-After changing fileprocessor class to reportProcessor I believe it needs to have:
+I changed my fileprocessor class to reportsprocessor because it is ultimately processing a report with the correct driving history.
+It will need to:
 
 - Read a file
 - Determine all the key drivers without duplicates
