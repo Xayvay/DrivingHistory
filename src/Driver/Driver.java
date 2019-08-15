@@ -1,4 +1,6 @@
 package Driver;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -8,8 +10,10 @@ package Driver;
  * @author  Xavier Shelton
  * @version 1.0
  * @since   2019-08-15
+ *
  */
 public class Driver {
+    Set<String> drivers = new HashSet<String>();
     public Driver(){
 
     }
