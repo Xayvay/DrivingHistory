@@ -1,6 +1,9 @@
 package Driver;
-import java.util.HashSet;
-import java.util.Set;
+
+
+import Trip.Trip;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -14,8 +17,47 @@ import java.util.Set;
  *
  */
 public class Driver {
-    Set<String> drivers = new HashSet<String>();
-    public Driver(){
+    private String driverName = "";
+    private int totalMiles;
+    private int totalSpeed ;
+    private ArrayList<Trip> trips;
 
+    public Driver(String driverName){
+        this.driverName = driverName;
+        totalMiles = 0;
+        totalSpeed = 0;
+        trips = new ArrayList<Trip>();
+    }
+
+    public void setDriveName(String driverName) {
+        this.driverName = driverName;
+    }
+
+    public String getDriverName(){
+        return this.driverName;
+    }
+
+    public void setTotalMiles(int totalMiles){
+        this.totalMiles = totalMiles;
+    }
+
+    public Integer getTotalMiles(){
+        return this.totalMiles;
+    }
+
+    public void setTotalSpeed(int totalSpeed){
+        this.totalSpeed = totalSpeed;
+    }
+
+    public Integer getTotalSpeed(){
+        return this.totalSpeed;
+    }
+
+    public void setTrips(ArrayList<Trip> trips){
+        this.trips = trips;
+    }
+
+    public ArrayList<Trip> getTrips(){
+        return this.trips;
     }
 }

@@ -63,7 +63,7 @@ public class ReportProcessor {
      *
      * @param inputStream The input stream to read the file
      */
-    public boolean fileReader(BufferedReader inputStream, ArrayList<Driver> drivers) throws IOException {
+    public void fileReader(BufferedReader inputStream, ArrayList<Driver> drivers) throws IOException {
         String line;
         try {
             while ((line = inputStream.readLine()) != null) {
@@ -72,7 +72,6 @@ public class ReportProcessor {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return true;
     }
 
     private void parseLine(String line, ArrayList<Driver> drivers) {
