@@ -30,30 +30,13 @@ public class ReportProcessor {
      * @param filePath A string of the file path
      */
     public Boolean processReport(String filePath) throws IOException {
-        BufferedReader inputStream = null;
-        PrintWriter outputStream = null;
         File inputFile = new File(filePath);
         ArrayList<Driver> drivers = new ArrayList<Driver>();
 
-        try {
-            inputStream = new BufferedReader(new FileReader(inputFile));
-            outputStream = new PrintWriter(new FileWriter("DriverHistory.txt"));
+        try (BufferedReader inputStream = new BufferedReader(new FileReader(inputFile)); PrintWriter outputStream = new PrintWriter(new FileWriter("DriverHistory.txt"))) {
 
             fileReader(inputStream, drivers);
-
-        } finally {
-            // Close input stream
-            if (inputStream != null) {
-                inputStream.close();
-            }
-            // Final output for output file
-
-            // Close output stream
-            if (outputStream != null) {
-                outputStream.close();
-            }
         }
-
         return true;
     }
 
@@ -63,7 +46,7 @@ public class ReportProcessor {
      *
      * @param inputStream The input stream to read the file
      */
-    public void fileReader(BufferedReader inputStream, ArrayList<Driver> drivers) throws IOException {
+    private void fileReader(BufferedReader inputStream, ArrayList<Driver> drivers) throws IOException {
         String line;
         try {
             while ((line = inputStream.readLine()) != null) {
@@ -84,8 +67,7 @@ public class ReportProcessor {
                 TripService.addTrip(drivers, outputArray[1], outputArray[2], outputArray[3], outputArray[4]);
                 break;
             default:
-                //throw error
-                break;
+                throw new IllegalStateException("This line should be unreachable, please provide a file that is formatted correctly");
         }
     }
 
