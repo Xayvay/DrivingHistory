@@ -42,4 +42,5 @@ It will need to:
 
 While starring at my fileReader method for awhile. It was safe to determine that I can parse each of these lines into their correct "silo" of Driver and Trip. Yet I didnt want to overload these objects with methods so I created a DriverService and TripService class.
 
+Adding getters and setters for the Driver and Trip Objects
 
