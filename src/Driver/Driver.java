@@ -35,10 +35,6 @@ public class Driver {
         return this.driverName;
     }
 
-    public void setTotalMiles(int totalMiles) {
-        this.totalMiles = totalMiles;
-    }
-
     public int getTotalMiles() {
         return this.totalMiles;
     }
