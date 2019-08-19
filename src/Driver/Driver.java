@@ -43,7 +43,6 @@ public class Driver {
         return this.totalMiles;
     }
 
-
     public void setTrips(ArrayList<Trip> trips) {
         this.trips = trips;
     }
@@ -52,8 +51,8 @@ public class Driver {
         return this.trips;
     }
 
-    public int getAvgSpeed() {
-        return this.avgSpeed / this.totalMiles;
+    private int getAvgSpeed() {
+        return accumulatedMiles(this.trips) / accumulatedHours(this.trips);
     }
 
     private int accumulatedHours(ArrayList<Trip> trips) {
@@ -74,11 +73,11 @@ public class Driver {
 
     public void addTrip(Trip trip) {
 
-        if (trip.getDriverName().equals(this.driverName)){
+        if (trip.getDriverName().equals(this.driverName)) {
             this.trips.add(trip);
             this.totalMiles += trip.getMilesTraveled();
             this.avgSpeed = getAvgSpeed();
-        }else{
+        } else {
             throw new java.lang.RuntimeException("The following trip is not for this specific driver");
         }
     }
