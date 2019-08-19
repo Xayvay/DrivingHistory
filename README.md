@@ -48,7 +48,7 @@ This class will initialize the Driver and Trip classes and then i'll add getters
 
 Took me some time to really figure out what exactly the driver class needed. I initially put the getters and setters as well as the driver name, total miles, average speed, and trips. These are the common qualities for a driver provided in my key observations.
 
-This will also mean that I need a way to get the average speed, total miles, and trips.Okay but I need the trips first to get any of these. I mean if I could simply set these values that would be ideal but, that is not the ask for this project. So really I dont need some of these setter methods that I precreated.
+This will also mean that I need a way to get the average speed, total miles, and trips.Okay but I need the trips first to get any of these. I mean if I could simply set these values that would be ideal but, that is not the ask for this project. So really I dont need some of these setter methods that I precreated.( I actually lied I will use these setter methods for testing purposes)
 
 I do need a method for adding trips and I also need a way to filter through those trips. So I will create an add trip method and an addTrips method. Seperating these duties once again to make the code cleaner.
 
