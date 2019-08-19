@@ -40,7 +40,22 @@ It will need to:
 - Record everything on Reports
 - Spit our results on console or in output file... or both.
 
-While starring at my fileReader method for awhile. It was safe to determine that I can parse each of these lines into their correct "silo" of Driver and Trip. Yet I didnt want to overload these objects with methods so I created a DriverService and TripService class.
+While staring at my fileReader method for awhile. It was safe to determine that I can parse each of these lines into their correct "silo" of Driver and Trip. Yet I didnt want to overload these objects with methods so I created a DriverService and TripService class.
 
+These classes will initialize the Driver and Trip classes
 Adding getters and setters for the Driver and Trip Objects
+
+### Driver class
+
+Took me some time to really figure out what exactly the driver class needed. I initially put the getters and setters as well as the driver name, total miles, average speed, and trips. These are the common qualities for a driver provided in my key observations.
+
+This will also mean that I need a way to get the average speed, total miles, and trips.Okay but I need the trips first to get any of these. I mean if I could simply set these values that would be ideal but, that is not the ask for this project. So really I dont need some of these setter methods that I precreated.
+
+I do need a method for adding trips and I also need a way to filter through those trips. So I will create an add trip method and an addTrips method. Seperating these duties once again to make the code cleaner.
+
+Before I move forward. I want to determine if there is anything else that maybe needed by the driver. Well, the driver will have all the correct data needed to be recorded on the report. I mean they own their own hours,miles,avgSpeed,etc show they should also write their input on the report. Thus,I created a generateDriverReport method for finally recording the drivers properties.
+
+Now to get average speed I need to have an accumulation of miles and hours.(mph)
+Seperating these duties into their own methods I created the accumulateMiles method and accuma
+         
 
