@@ -3,13 +3,14 @@ package Trip;
 import java.util.Date;
 
 /**
+ *
  * <h1>Trip</h1>
  * The Trip Object, meant for creating instances of a trip.
  * Will set Trip information
  *
- * @author Xavier Shelton
+ * @author  Xavier Shelton
  * @version 1.0
- * @since 2019-08-15
+ * @since   2019-08-15
  */
 public class Trip {
     String driverName;
@@ -19,7 +20,7 @@ public class Trip {
     int milesTraveled;
 
 
-    Trip(String driverName, Date startTime, Date endTime, int milesTraveled) {
+    Trip(String driverName,Date startTime,Date endTime,int milesTraveled){
         this.driverName = driverName;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -32,27 +33,43 @@ public class Trip {
         this.driverName = driverName;
     }
 
-    public String getDriverName() {
+    public String getDriverName(){
         return this.driverName;
     }
 
-    public Date getStartDate() {
+    public void setStartDate(Date startDate){
+        this.startTime = startDate;
+    }
+
+    public Date getStartDate(){
         return this.startTime;
     }
 
-    public Date getEndDate() {
+    public void setEndDate(Date endDate){
+        this.endTime = endDate;
+    }
+
+    public Date getEndDate(){
         return this.endTime;
     }
 
-    public int getTripDuration() {
+    public void setTripDuration(int tripDuration){
+        this.tripDuration = tripDuration;
+    }
+
+    public int getTripDuration(){
         return this.tripDuration;
     }
 
-    public int getMilesTraveled() {
+    public int getMilesTraveled(){
         return this.milesTraveled;
     }
+    
+    public boolean isValid() {
+        return false;
+    }
 
-    public int convertToHours(int time) {
+    public int convertToHours(Date time) {
         return 0;
     }
 }
