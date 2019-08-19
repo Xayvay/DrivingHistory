@@ -18,14 +18,14 @@ import java.util.ArrayList;
  */
 public class Driver {
     private String driverName = "";
-    private int miles;
-    private int speed ;
+    private int totalMiles;
+    private int avgSpeed ;
     private ArrayList<Trip> trips;
 
     public Driver(String driverName){
         this.driverName = driverName;
-        miles = 0;
-        speed = 0;
+        totalMiles = 0;
+        avgSpeed = 0;
         trips = new ArrayList<Trip>();
     }
 
@@ -38,19 +38,19 @@ public class Driver {
     }
 
     public void setTotalMiles(int totalMiles){
-        this.miles = totalMiles;
+        this.totalMiles = totalMiles;
     }
 
     public int getTotalMiles(){
-        return this.miles;
+        return this.totalMiles;
     }
 
     public void setTotalSpeed(int totalSpeed){
-        this.speed = totalSpeed;
+        this.avgSpeed = totalSpeed;
     }
 
     public int getTotalSpeed(){
-        return this.speed;
+        return this.avgSpeed;
     }
 
     public void setTrips(ArrayList<Trip> trips){
@@ -61,4 +61,27 @@ public class Driver {
         return this.trips;
     }
 
+    public int getAvgSpeed(){
+        return this.avgSpeed/this.totalMiles;
+    }
+    
+    private  int accumulatedHours(){
+        return 0;
+    }
+
+    private int accumulatedMiles(){
+        return 0;
+    }
+
+    public  void addTrip(Trip trip){
+
+    }
+
+    public  void addTrips(){
+
+    }
+
+    public  String generateDriverReport(){
+        return "";
+    }
 }
