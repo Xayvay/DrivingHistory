@@ -82,8 +82,10 @@ public class Driver {
         }
     }
 
-    public void addTrips() {
-
+    public void addTrips(ArrayList<Trip> trips) {
+        for (Trip trip : trips) {
+            addTrip(trip);
+        }
     }
 
     public String generateDriverReport() {
