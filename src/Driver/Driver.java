@@ -50,7 +50,11 @@ public class Driver {
         return this.trips;
     }
 
-    private int getAvgSpeed() {
+    public void setAvgSpeed(int avgSpeed){
+        this.avgSpeed = avgSpeed;
+    }
+
+    public int getAvgSpeed() {
         return accumulatedMiles(this.trips) / accumulatedHours(this.trips);
     }
 
@@ -88,7 +92,7 @@ public class Driver {
     }
 
     public String generateDriverReport() {
-        return "";
+        return this.driverName + ": " + this.totalMiles + " miles @ " + this.avgSpeed + " mph";
     }
 
 }
