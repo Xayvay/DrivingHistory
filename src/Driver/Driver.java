@@ -17,12 +17,14 @@ import java.util.ArrayList;
 public class Driver {
     private String driverName = "";
     private int totalMiles;
+    private int totalHours;
     private int avgSpeed;
     private ArrayList<Trip> trips;
 
     public Driver(String driverName) {
         this.driverName = driverName;
         totalMiles = 0;
+        totalHours = 0;
         avgSpeed = 0;
         trips = new ArrayList<Trip>();
     }
@@ -35,11 +37,20 @@ public class Driver {
         return this.driverName;
     }
 
-    public void setTotalMiles(int totalMiles){
+    public void setTotalMiles(int totalMiles) {
         this.totalMiles = totalMiles;
     }
+
     public int getTotalMiles() {
         return this.totalMiles;
+    }
+
+    public void setTotalHours(int totalHours) {
+        this.totalHours = totalHours;
+    }
+    
+    public int getTotalHours() {
+        return this.totalHours;
     }
 
     public void setTrips(ArrayList<Trip> trips) {
@@ -50,7 +61,7 @@ public class Driver {
         return this.trips;
     }
 
-    public void setAvgSpeed(int avgSpeed){
+    public void setAvgSpeed(int avgSpeed) {
         this.avgSpeed = avgSpeed;
     }
 
