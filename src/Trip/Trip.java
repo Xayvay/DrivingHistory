@@ -15,15 +15,15 @@ public class Trip {
     private String driverName;
     private Date startTime;
     private Date endTime;
-    private long tripDuration;
-    private long milesDriven;
+    private double tripDuration;
+    private double milesDriven;
 
 
-    Trip(String driverName, Date startTime, Date endTime, long milesDriven) {
+    Trip(String driverName, Date startTime, Date endTime, double milesDriven) {
         this.driverName = driverName;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.tripDuration = 0;
+        this.tripDuration = this.getTripDuration();
         this.milesDriven = milesDriven;
     }
 
@@ -55,31 +55,39 @@ public class Trip {
         this.tripDuration = tripDuration;
     }
 
-    public long getTripDuration() {
+    public double getTripDuration() {
         return convertToHours(this.endTime) - convertToHours(this.startTime);
     }
 
-    public long getMilesTraveled() {
+    public double getMilesTraveled() {
         return this.milesDriven;
     }
 
-    public boolean isValid() {
-        return false;
+    boolean isValid() {
+
+        double miles = (double) Math.round(this.milesDriven);
+        double mph = miles / this.tripDuration;
+        boolean validation = true;
+
+        if (mph < 5 || mph > 100) {
+            validation = false;
+        }
+
+        return validation;
     }
 
     /**
-     * A method that gets the converts a date type to hours.
-     *
+     * A method that converts a date type containing a given time to hours.
+     * <p>
      * (FYI: This method returns a value of the hours that were provided plus the value representation of 1970-01-01 00:00:00)
      * Can improve this method to subtract 1970-01-01 in its miliseconds form but it is later subtracted in the getDuration method
      *
      * @param time The start or end time of a trip in a date type
-     *
      */
-    long convertToHours(Date time) {
-        long milsecsToMin = 60000;
-        long givenTime = time.getTime();
-        long timeInMinutes = givenTime / milsecsToMin;
+    double convertToHours(Date time) {
+        double milsecsToMin = 60000.0;
+        double givenTime = time.getTime();
+        double timeInMinutes = givenTime / milsecsToMin;
 
         return timeInMinutes / 60;
     }

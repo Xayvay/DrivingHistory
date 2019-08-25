@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class TripService {
-    public static void addTrip(ArrayList<Driver> drivers, String driverName, String startTime, String stopTime, String milesDriven) throws ParseException {
+    public static void addTrip(ArrayList<Driver> drivers, String driverName, String startTime, String stopTime, String milesDriven)  {
 
         drivers.forEach(driver -> {
             if (driverName.equals(driver.getDriverName())) {
                 try {
-                    driver.addTrip(new Trip(driverName, stringToTime(startTime), stringToTime(stopTime), Integer.parseInt(milesDriven)));
+                    driver.addTrip(new Trip(driverName, stringToTime(startTime), stringToTime(stopTime), Double.parseDouble(milesDriven)));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
