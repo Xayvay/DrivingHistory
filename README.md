@@ -70,7 +70,10 @@ Seperating these duties into their own methods I created the accumulateMiles met
 After going over my driver class it seems pretty much done at the moment so I wanted to move forward with my trips service. 
 Which lead me to clean up a few methods I thought I needed in the past but do not need now. Since I am not filter through the entire document at once. I dont need to have an addTrips method. I can simply add trips for each driver when I run into it. Thank you past me for making it possible to do either or. Now I want to test to confirm the driver and the trips serive is working fine. I will create a same text file for testing and create junits.
 
-### 
+### Trip class
 
-         
+With the Trip class I created pre determined methods based off of my initial key observations. Similar to the Driver class. These methods consist of getters and setters for the class members as well as a method to get the duration of a trip (how long it took), get the miles traveled in a trip, is the trip even a valid trip, and convert the trip time to hours.
 
+After initially struggling with the setup of my Driver class; I think it is safe to say that by mapping out all that was asked from the beginning into methods allowed me to architect the structure of this application fairly well. Other than building an application model diagram I think that this would be a great practice to use when mapping out future stories.
+
+Anyway,
