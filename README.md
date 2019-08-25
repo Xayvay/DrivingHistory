@@ -50,7 +50,7 @@ Created this class to add a driver to the drivers ArrayList. Simple service for 
 
 ### TripService class
 
-Created this class to add a drivers trip. This will look for the driver and see if the driverName in the parse trip like matches a driver in our drivers ArrayList
+Created this class to add a driver's trip. This will look for the driver and see if the driverName in the parse trip like matches a driver in our drivers ArrayList
 
 ### Driver class
 
