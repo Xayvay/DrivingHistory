@@ -27,32 +27,9 @@ public class Trip {
         this.milesDriven = milesDriven;
     }
 
-    public void setDriveName(String driverName) {
-        this.driverName = driverName;
-    }
 
     public String getDriverName() {
         return this.driverName;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startTime = startDate;
-    }
-
-    public Date getStartDate() {
-        return this.startTime;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endTime = endDate;
-    }
-
-    public Date getEndDate() {
-        return this.endTime;
-    }
-
-    public void setTripDuration(long tripDuration) {
-        this.tripDuration = tripDuration;
     }
 
     public double getTripDuration() {
@@ -79,14 +56,15 @@ public class Trip {
     /**
      * A method that converts a date type containing a given time to hours.
      * <p>
-     * (FYI: This method returns a value of the hours that were provided plus the value representation of 1970-01-01 00:00:00)
-     * Can improve this method to subtract 1970-01-01 in its miliseconds form but it is later subtracted in the getDuration method
+     * (FYI: the startDateValue of 18000000 is the default milliseconds added from 1970-01-01 00:00:00)
+     * Can improve this method to subtract 1970-01-01 in its milliseconds form but it is later subtracted in the getDuration method
      *
      * @param time The start or end time of a trip in a date type
      */
     double convertToHours(Date time) {
+        double startDateMillis = 18000000;
         double milsecsToMin = 60000.0;
-        double givenTime = time.getTime();
+        double givenTime = time.getTime() - startDateMillis;
         double timeInMinutes = givenTime / milsecsToMin;
 
         return timeInMinutes / 60;

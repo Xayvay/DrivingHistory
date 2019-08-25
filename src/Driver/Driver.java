@@ -16,9 +16,9 @@ import java.util.ArrayList;
  */
 public class Driver {
     private String driverName = "";
-    private long totalMiles;
+    private double totalMiles;
     private long totalHours;
-    private long avgSpeed;
+    private double avgSpeed;
     private ArrayList<Trip> trips;
 
     public Driver(String driverName) {
@@ -30,9 +30,6 @@ public class Driver {
     }
 
     //Getters and Setters for member props in Driver
-    public void setDriveName(String driverName) {
-        this.driverName = driverName;
-    }
 
     public String getDriverName() {
         return this.driverName;
@@ -42,31 +39,15 @@ public class Driver {
         this.totalMiles = totalMiles;
     }
 
-    public long getTotalMiles() {
+    public double getTotalMiles() {
         return this.totalMiles;
-    }
-
-    public void setTotalHours(long totalHours) {
-        this.totalHours = totalHours;
-    }
-
-    public long getTotalHours() {
-        return this.totalHours;
-    }
-
-    public void setTrips(ArrayList<Trip> trips) {
-        this.trips = trips;
-    }
-
-    public ArrayList<Trip> getTrips() {
-        return this.trips;
     }
 
     public void setAvgSpeed(long avgSpeed) {
         this.avgSpeed = avgSpeed;
     }
 
-    public long getAvgSpeed() {
+    public double getAvgSpeed() {
         return accumulatedMiles(this.trips) / accumulatedHours(this.trips);
     }
 
@@ -75,8 +56,8 @@ public class Driver {
      *
      * @param trips amount of trips the driver has
      */
-    private long accumulatedHours(ArrayList<Trip> trips) {
-        long hours = 0;
+    private double accumulatedHours(ArrayList<Trip> trips) {
+        double hours = 0;
         for (Trip trip : trips) {
             hours += trip.getTripDuration();
         }
@@ -88,8 +69,8 @@ public class Driver {
      *
      * @param trips amount of trips the driver has
      */
-    private long accumulatedMiles(ArrayList<Trip> trips) {
-        long miles = 0;
+    private double accumulatedMiles(ArrayList<Trip> trips) {
+        double miles = 0;
         for (Trip trip : trips) {
             miles += trip.getMilesTraveled();
         }
