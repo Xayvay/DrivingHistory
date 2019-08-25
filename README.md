@@ -77,3 +77,15 @@ With the Trip class I created pre determined methods based off of my initial key
 After initially struggling with the setup of my Driver class; I think it is safe to say that by mapping out all that was asked from the beginning into methods allowed me to architect the structure of this application fairly well. Other than building an application model diagram I think that this would be a great practice to use when mapping out future stories.
 
 Anyway,My first thought is to confirm that a trip is valid. Since I initially put this in my Trip class, I wanted the trips to be able to determine if they're valid or not.So inside of my isValid trip method I am going to check any trips that average a speed of less than 5 mph or greater than 100 mph. If any of these cases are true then RETURN FALSE!
+
+Well, To determine if something is valid I need to get the mph, which also means I have to calculate the tripduration, and miles traveled.
+
+With getTripDuration I would like to return the Date Time in hours. I will first update the convertToHours method which will call in one DateTime and return a long of hours. Then I will call that within getTripDuration.
+
+3 hours later this took me a very long time to figure out why my test cases were failing and its because in Java the milliseconds obtained are the milliseconds between the desired epoch and 1970-01-01 00:00:00. So I was getting values 2 times greater than what I desired. When I subtract the duration this will be resolved so no isses. I can also add the value of 18000000 yet I am not sure when or if this will ever change so I left this in and tested the values expected.
+
+Was able to add testcases for my trip duration now. Assuming that the values are rounded correctly I should be able to move forward. If this does not work as expected I will have to improve convert to hours.
+
+
+
+
