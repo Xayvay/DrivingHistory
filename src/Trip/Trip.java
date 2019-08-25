@@ -17,15 +17,15 @@ public class Trip {
     Date startTime;
     Date endTime;
     int tripDuration;
-    int milesTraveled;
+    int milesDriven;
 
 
-    Trip(String driverName,Date startTime,Date endTime,int milesTraveled){
+    Trip(String driverName,Date startTime,Date endTime,int milesDriven){
         this.driverName = driverName;
         this.startTime = startTime;
         this.endTime = endTime;
         this.tripDuration = 0;
-        this.milesTraveled = milesTraveled;
+        this.milesDriven = milesDriven;
     }
 
 
@@ -62,7 +62,7 @@ public class Trip {
     }
 
     public int getMilesTraveled(){
-        return this.milesTraveled;
+        return this.milesDriven;
     }
     
     public boolean isValid() {

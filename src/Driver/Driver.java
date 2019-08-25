@@ -48,7 +48,7 @@ public class Driver {
     public void setTotalHours(int totalHours) {
         this.totalHours = totalHours;
     }
-    
+
     public int getTotalHours() {
         return this.totalHours;
     }
@@ -95,15 +95,10 @@ public class Driver {
             throw new java.lang.RuntimeException("The following trip is not for this specific driver");
         }
     }
-
-    public void addTrips(ArrayList<Trip> trips) {
-        for (Trip trip : trips) {
-            addTrip(trip);
-        }
-    }
+    
 
     public String generateDriverReport() {
-        return this.driverName + ": " + this.totalMiles + " miles @ " + this.avgSpeed + " mph";
+        return this.driverName + " : " + this.totalMiles + " miles @ " + this.avgSpeed + " mph";
     }
 
 }

@@ -6,6 +6,7 @@ import Driver.DriverService;
 import Trip.TripService;
 
 import java.io.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
@@ -57,7 +58,7 @@ public class ReportProcessor {
         }
     }
 
-    private void parseLine(String line, ArrayList<Driver> drivers) {
+    private void parseLine(String line, ArrayList<Driver> drivers) throws ParseException {
         String[] outputArray = line.split("\\s+");
         switch (outputArray[0]) {
             case "Driver":
