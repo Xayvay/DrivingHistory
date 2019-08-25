@@ -76,4 +76,4 @@ With the Trip class I created pre determined methods based off of my initial key
 
 After initially struggling with the setup of my Driver class; I think it is safe to say that by mapping out all that was asked from the beginning into methods allowed me to architect the structure of this application fairly well. Other than building an application model diagram I think that this would be a great practice to use when mapping out future stories.
 
-Anyway,
+Anyway,My first thought is to confirm that a trip is valid. Since I initially put this in my Trip class, I wanted the trips to be able to determine if they're valid or not.So inside of my isValid trip method I am going to check any trips that average a speed of less than 5 mph or greater than 100 mph. If any of these cases are true then RETURN FALSE!
