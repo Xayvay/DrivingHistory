@@ -2,6 +2,8 @@
 
 Driving History is a java application that will process an input file (.txt) with information based on a driver/s. The application will filter through the list of information and print out a new file with the driver/s name,how many miles they have drove, and their average speed.
 
+# How To Deploy
+
 # Initial Key Observations
 
 - The code will process an input file.
