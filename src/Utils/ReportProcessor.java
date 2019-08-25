@@ -8,9 +8,7 @@ import Trip.TripService;
 import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+
 
 /**
  * <h1>ReportProcessor</h1>
@@ -58,6 +56,13 @@ public class ReportProcessor {
         }
     }
 
+    /**
+     * Reads in a line and seperates it to determine if it Driver information is being stored or Trip information.
+     * Then Calls that specific service
+     *
+     * @param line Seperated line from file
+     * @param drivers A group of drivers for adding a new driver or adding a trip for a driver
+     */
     private void parseLine(String line, ArrayList<Driver> drivers) throws ParseException {
         String[] outputArray = line.split("\\s+");
         switch (outputArray[0]) {

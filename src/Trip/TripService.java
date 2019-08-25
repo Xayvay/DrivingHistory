@@ -21,7 +21,7 @@ public class TripService {
         });
     }
 
-    public static Date stringToTime(String str) throws ParseException {
-        return new SimpleDateFormat("HH:mm:ss").parse(str);
+    static Date stringToTime(String str) throws ParseException {
+        return new SimpleDateFormat("HH:mm").parse(str);
     }
 }

@@ -16,9 +16,9 @@ import java.util.ArrayList;
  */
 public class Driver {
     private String driverName = "";
-    private int totalMiles;
-    private int totalHours;
-    private int avgSpeed;
+    private long totalMiles;
+    private long totalHours;
+    private long avgSpeed;
     private ArrayList<Trip> trips;
 
     public Driver(String driverName) {
@@ -29,6 +29,7 @@ public class Driver {
         trips = new ArrayList<Trip>();
     }
 
+    //Getters and Setters for member props in Driver
     public void setDriveName(String driverName) {
         this.driverName = driverName;
     }
@@ -37,19 +38,19 @@ public class Driver {
         return this.driverName;
     }
 
-    public void setTotalMiles(int totalMiles) {
+    public void setTotalMiles(long totalMiles) {
         this.totalMiles = totalMiles;
     }
 
-    public int getTotalMiles() {
+    public long getTotalMiles() {
         return this.totalMiles;
     }
 
-    public void setTotalHours(int totalHours) {
+    public void setTotalHours(long totalHours) {
         this.totalHours = totalHours;
     }
 
-    public int getTotalHours() {
+    public long getTotalHours() {
         return this.totalHours;
     }
 
@@ -61,30 +62,46 @@ public class Driver {
         return this.trips;
     }
 
-    public void setAvgSpeed(int avgSpeed) {
+    public void setAvgSpeed(long avgSpeed) {
         this.avgSpeed = avgSpeed;
     }
 
-    public int getAvgSpeed() {
+    public long getAvgSpeed() {
         return accumulatedMiles(this.trips) / accumulatedHours(this.trips);
     }
 
-    private int accumulatedHours(ArrayList<Trip> trips) {
-        int hours = 0;
+    /**
+     * A method that gets the total amount of hours driven
+     *
+     * @param trips amount of trips the driver has
+     */
+    private long accumulatedHours(ArrayList<Trip> trips) {
+        long hours = 0;
         for (Trip trip : trips) {
             hours += trip.getTripDuration();
         }
         return hours;
     }
 
-    private int accumulatedMiles(ArrayList<Trip> trips) {
-        int miles = 0;
+    /**
+     * A method that gets the total amount of miles driven
+     *
+     * @param trips amount of trips the driver has
+     */
+    private long accumulatedMiles(ArrayList<Trip> trips) {
+        long miles = 0;
         for (Trip trip : trips) {
             miles += trip.getMilesTraveled();
         }
         return miles;
     }
-
+    /**
+     * A method that adds a trip to the droves trips arraylist
+     * Updates the total miles driven
+     * Updates the average speed of all the drivers trips
+     *
+     * @param trip A trip that the driver has drove
+     */
     public void addTrip(Trip trip) {
 
         if (trip.getDriverName().equals(this.driverName)) {
@@ -96,8 +113,12 @@ public class Driver {
         }
     }
 
+    /**
+     * A method that generates the drivers report (driveName: totaMiles @ avgSpeed)
+     *
+     */
     public String generateDriverReport() {
-        return this.driverName + " : " + this.totalMiles + " miles @ " + this.avgSpeed + " mph";
+        return this.driverName + ": " + this.totalMiles + " miles @ " + this.avgSpeed + " mph";
     }
 
 }
