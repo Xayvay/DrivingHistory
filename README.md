@@ -2,6 +2,8 @@
 
 Driving History is a java application that will process an input file (.txt) with information based on a driver/s. The application will filter through the list of information and print out a new file with the driver/s name,how many miles they have drove, and their average speed.
 
+# How To Deploy
+
 # Initial Key Observations
 
 - The code will process an input file.
@@ -50,7 +52,7 @@ Created this class to add a driver to the drivers ArrayList. Simple service for 
 
 ### TripService class
 
-Created this class to add a driver's trip. This will look for the driver and see if the driverName in the parse trip like matches a driver in our drivers ArrayList
+Created this class to add a driver's trip. This will look for the driver and see if the driverName in the parsed Trip line matches a driver in our drivers ArrayList
 
 ### Driver class
 
@@ -68,7 +70,22 @@ Seperating these duties into their own methods I created the accumulateMiles met
 After going over my driver class it seems pretty much done at the moment so I wanted to move forward with my trips service. 
 Which lead me to clean up a few methods I thought I needed in the past but do not need now. Since I am not filter through the entire document at once. I dont need to have an addTrips method. I can simply add trips for each driver when I run into it. Thank you past me for making it possible to do either or. Now I want to test to confirm the driver and the trips serive is working fine. I will create a same text file for testing and create junits.
 
-### 
+### Trip class
 
-         
+With the Trip class I created pre determined methods based off of my initial key observations. Similar to the Driver class. These methods consist of getters and setters for the class members as well as a method to get the duration of a trip (how long it took), get the miles traveled in a trip, is the trip even a valid trip, and convert the trip time to hours.
+
+After initially struggling with the setup of my Driver class; I think it is safe to say that by mapping out all that was asked from the beginning into methods allowed me to architect the structure of this application fairly well. Other than building an application model diagram I think that this would be a great practice to use when mapping out future stories.
+
+Anyway,My first thought is to confirm that a trip is valid. Since I initially put this in my Trip class, I wanted the trips to be able to determine if they're valid or not.So inside of my isValid trip method I am going to check any trips that average a speed of less than 5 mph or greater than 100 mph. If any of these cases are true then RETURN FALSE!
+
+Well, To determine if something is valid I need to get the mph, which also means I have to calculate the tripduration, and miles traveled.
+
+With getTripDuration I would like to return the Date Time in hours. I will first update the convertToHours method which will call in one DateTime and return a long of hours. Then I will call that within getTripDuration.
+
+3 hours later this took me a very long time to figure out why my test cases were failing and its because in Java the milliseconds obtained are the milliseconds between the desired epoch and 1970-01-01 00:00:00. So I was getting values 2 times greater than what I desired. When I subtract the duration this will be resolved so no isses. I can also add the value of 18000000 yet I am not sure when or if this will ever change so I left this in and tested the values expected.
+
+Was able to add testcases for my trip duration now. Assuming that the values are rounded correctly I should be able to move forward. If this does not work as expected I will have to improve convert to hours.
+
+
+
 
