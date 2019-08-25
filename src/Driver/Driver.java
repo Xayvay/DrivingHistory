@@ -95,7 +95,6 @@ public class Driver {
             throw new java.lang.RuntimeException("The following trip is not for this specific driver");
         }
     }
-    
 
     public String generateDriverReport() {
         return this.driverName + " : " + this.totalMiles + " miles @ " + this.avgSpeed + " mph";
