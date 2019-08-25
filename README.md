@@ -44,6 +44,14 @@ While staring at my fileReader method for awhile. It was safe to determine that 
 
 This class will initialize the Driver and Trip classes and then i'll add getters and setters for the Driver and Trip Objects.
 
+### DriverService class
+
+Created this class to add a driver to the drivers ArrayList. Simple service for adding new drivers when a parsed Driver line is given.
+
+### TripService class
+
+Created this class to add a drivers trip. This will look for the driver and see if the driverName in the parse trip like matches a driver in our drivers ArrayList
+
 ### Driver class
 
 Took me some time to really figure out what exactly the driver class needed. I initially put the getters and setters as well as the driver name, total miles, average speed, and trips. These are the common qualities for a driver provided in my key observations.
@@ -55,6 +63,12 @@ I do need a method for adding trips and I also need a way to filter through thos
 Before I move forward. I want to determine if there is anything else that maybe needed by the driver. Well, the driver will have all the correct data needed to be recorded on the report. I mean they own their own hours,miles,avgSpeed,etc show they should also write their input on the report. Thus,I created a generateDriverReport method for finally recording the drivers properties.
 
 Now to get average speed I need to have an accumulation of miles and hours.(mph)
-Seperating these duties into their own methods I created the accumulateMiles method and accuma
+Seperating these duties into their own methods I created the accumulateMiles method and accumalateHours method.
+
+After going over my driver class it seems pretty much done at the moment so I wanted to move forward with my trips service. 
+Which lead me to clean up a few methods I thought I needed in the past but do not need now. Since I am not filter through the entire document at once. I dont need to have an addTrips method. I can simply add trips for each driver when I run into it. Thank you past me for making it possible to do either or. Now I want to test to confirm the driver and the trips serive is working fine. I will create a same text file for testing and create junits.
+
+### 
+
          
 
