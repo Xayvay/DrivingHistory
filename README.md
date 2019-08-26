@@ -58,7 +58,7 @@ Created this class to add a driver's trip. This will look for the driver and see
 
 Took me some time to really figure out what exactly the driver class needed. I initially put the getters and setters as well as the driver name, total miles, average speed, and trips. These are the common qualities for a driver provided in my key observations.
 
-This will also mean that I need a way to get the average speed, total miles, and trips.Okay but I need the trips first to get any of these. I mean if I could simply set these values that would be ideal but, that is not the ask for this project. So really I dont need some of these setter methods that I precreated.( I actually lied I will use these setter methods for testing purposes)
+This will also mean that I need a way to get the average speed, total miles, and trips.Okay but I need the trips first to get any of these. I mean if I could simply set these values that would be ideal but, that is not the ask for this project. So really I dont need some of these setter methods that I precreated.
 
 I do need a method for adding trips and I also need a way to filter through those trips. So I will create an add trip method and an addTrips method. Seperating these duties once again to make the code cleaner.
 
@@ -84,8 +84,14 @@ With getTripDuration I would like to return the Date Time in hours. I will first
 
 3 hours later this took me a very long time to figure out why my test cases were failing and its because in Java the milliseconds obtained are the milliseconds between the desired epoch and 1970-01-01 00:00:00. So I was getting values 2 times greater than what I desired. When I subtract the duration this will be resolved so no isses. I can also add the value of 18000000 yet I am not sure when or if this will ever change so I left this in and tested the values expected.
 
-Was able to add testcases for my trip duration now. Assuming that the values are rounded correctly I should be able to move forward. If this does not work as expected I will have to improve convert to hours.
+Was able to add testcases for getTripduration now. Assuming that the values are rounded correctly I should be able to move forward. If this does not work as expected I will have to improve the convertToHours method.
 
+The next logical step is to now see if I can validate if the trip is successful. I will do this by converting my miles received to a long and rounded it. As explained from the documentation and then dividing that by the tripDuration. Then finally checking if  the value false within mph < 5 || mph > 100 if so then its false else true.
 
+While testing I didnt like how my values were coming out even though they made since I personally did not like it so I added the startingDateMillis to my convertToHours method. This makes my testcases look a little more appealing. Also, added test cases for TestService whih lead me to remove a lot of the getters and setters from the Driver and Trip classes that I am not using at this point
 
+Now I initially feel like I have completed the Trip and Driver class so I will create testcases for my addTrips method and generateReport method.
 
+WHOA! Good thing I am testing this I just realize I didnt add my isValid to the addTrips check. Now I am able to further improve my test cases.
+
+### Report class
