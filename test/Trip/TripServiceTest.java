@@ -16,11 +16,10 @@ import static org.junit.Assert.assertTrue;
 public class TripServiceTest {
 
     @Test
-    public void testAddTrip() throws ParseException {
+    public void testAddTrip(){
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Goku");
         TripService.addTrip(drivers,"Goku","04:00","08:00","10");
-        boolean hasName = false;
         double avgSpeedCheck = 0;
         double milesCheck = 0.0;
         for (Driver driver : drivers) {

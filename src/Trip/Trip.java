@@ -40,7 +40,7 @@ public class Trip {
         return this.milesDriven;
     }
 
-    boolean isValid() {
+    public boolean isValid() {
 
         double miles = (double) Math.round(this.milesDriven);
         double mph = miles / this.tripDuration;

@@ -85,12 +85,13 @@ public class Driver {
      */
     public void addTrip(Trip trip) {
 
-        if (trip.getDriverName().equals(this.driverName)) {
+        if (trip.getDriverName().equals(this.driverName) && trip.isValid()) {
             this.trips.add(trip);
             this.totalMiles += trip.getMilesTraveled();
             this.avgSpeed = getAvgSpeed();
         } else {
-            throw new java.lang.RuntimeException("The following trip is not for this specific driver");
+            throw new java.lang.RuntimeException("The follow trip doesn't meet the correct requirements, \n either this is the wrong driver: (" +
+                    trip.getDriverName() + ") or it doesn't follow the speed parameters: (" + (trip.getMilesTraveled()/trip.getTripDuration()) + ") mph");
         }
     }
 
@@ -98,8 +99,11 @@ public class Driver {
      * A method that generates the drivers report (driveName: totaMiles @ avgSpeed)
      *
      */
-    public String generateDriverReport() {
-        return this.driverName + ": " + this.totalMiles + " miles @ " + this.avgSpeed + " mph";
+    String generateDriverReport() {
+        if(this.totalMiles == 0){
+            return this.driverName + ": " + 0 + " miles";
+        }
+        return this.driverName + ": " + Math.round(this.totalMiles) + " miles @ " + Math.round(this.avgSpeed)+ " mph";
     }
 
 }
