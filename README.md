@@ -84,8 +84,14 @@ With getTripDuration I would like to return the Date Time in hours. I will first
 
 3 hours later this took me a very long time to figure out why my test cases were failing and its because in Java the milliseconds obtained are the milliseconds between the desired epoch and 1970-01-01 00:00:00. So I was getting values 2 times greater than what I desired. When I subtract the duration this will be resolved so no isses. I can also add the value of 18000000 yet I am not sure when or if this will ever change so I left this in and tested the values expected.
 
-Was able to add testcases for my trip duration now. Assuming that the values are rounded correctly I should be able to move forward. If this does not work as expected I will have to improve convert to hours.
+Was able to add testcases for getTripduration now. Assuming that the values are rounded correctly I should be able to move forward. If this does not work as expected I will have to improve the convertToHours method.
 
+The next logical step is to now see if I can validate if the trip is successful. I will do this by converting my miles received to a long and rounded it. As explained from the documentation and then dividing that by the tripDuration. Then finally checking if  the value false within mph < 5 || mph > 100 if so then its false else true.
 
+While testing I didnt like how my values were coming out even though they made since I personally did not like it so I added the startingDateMillis to my convertToHours method. This makes my testcases look a little more appealing. Also, added test cases for TestService whih lead me to remove a lot of the getters and setters from the Driver and Trip classes that I am not using at this point
 
+Now I initially feel like I have completed the Trip and Driver class so I will create testcases for my addTrips method and generateReport method.
 
+WHOA! Good thing I am testing this I just realize I didnt add my isValid to the addTrips check. Now I am able to further improve my test cases.
+
+### Report class
