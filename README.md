@@ -46,6 +46,9 @@ While staring at my fileReader method for awhile. It was safe to determine that 
 
 This class will initialize the Driver and Trip classes and then i'll add getters and setters for the Driver and Trip Objects.
 
+After the implementation of the Driver And Trip classes I want to start implementation on the Report class.
+To do this I first would like to be able to output this data on a file within a filewriter method. In which the file writer method will call another method called obtain reports. The obtainReports method will then call the reportService to add a report to the file.
+
 ### DriverService class
 
 Created this class to add a driver to the drivers ArrayList. Simple service for adding new drivers when a parsed Driver line is given.
@@ -68,7 +71,10 @@ Now to get average speed I need to have an accumulation of miles and hours.(mph)
 Seperating these duties into their own methods I created the accumulateMiles method and accumalateHours method.
 
 After going over my driver class it seems pretty much done at the moment so I wanted to move forward with my trips service. 
-Which lead me to clean up a few methods I thought I needed in the past but do not need now. Since I am not filter through the entire document at once. I dont need to have an addTrips method. I can simply add trips for each driver when I run into it. Thank you past me for making it possible to do either or. Now I want to test to confirm the driver and the trips serive is working fine. I will create a same text file for testing and create junits.
+Which lead me to clean up a few methods I thought I needed in the past but do not need now. Since I am not filter through the entire document at once. I dont need to have an addTrips method. I can simply add trips for each driver when I run into it. Thank you past me for making it possible to do either or. Now I want to test to confirm the driver and the trips serive is working fine. I will create a sample text file for testing and create junits.
+
+After imnproving my junit, I wanted to have a better way to model issues with possible input scenarios that may occur.
+So I added my own exception called InvalidTripException.
 
 ### Trip class
 
@@ -93,5 +99,7 @@ While testing I didnt like how my values were coming out even though they made s
 Now I initially feel like I have completed the Trip and Driver class so I will create testcases for my addTrips method and generateReport method.
 
 WHOA! Good thing I am testing this I just realize I didnt add my isValid to the addTrips check. Now I am able to further improve my test cases.
+
+While improving test cases I still did not like the way that my convertToHours method functioned. So I updated the Date data type to LocalTime. Which allowed me to improve how this method looked and how the test looked.
 
 ### Report class
