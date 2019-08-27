@@ -17,14 +17,12 @@ import java.util.ArrayList;
 public class Driver {
     private String driverName = "";
     private double totalMiles;
-    private long totalHours;
     private double avgSpeed;
     private ArrayList<Trip> trips;
 
     public Driver(String driverName) {
         this.driverName = driverName;
         totalMiles = 0;
-        totalHours = 0;
         avgSpeed = 0;
         trips = new ArrayList<Trip>();
     }
@@ -85,14 +83,15 @@ public class Driver {
      */
     public void addTrip(Trip trip) throws InvalidTripException {
 
-        if (trip.getDriverName().equals(this.driverName) && trip.isValid()) {
-            this.trips.add(trip);
-            this.totalMiles += trip.getMilesTraveled();
-            this.avgSpeed = getAvgSpeed();
-        } else {
-            throw new InvalidTripException("The follow trip doesn't meet the correct requirements, \n either this is the wrong driver: (" +
-                    trip.getDriverName() + ") or it doesn't follow the speed parameters: (" + (trip.getMilesTraveled()/trip.getTripDuration()) + ") mph");
-        }
+            if (trip.getDriverName().equals(this.driverName) && trip.isValid()) {
+                this.trips.add(trip);
+                this.totalMiles += trip.getMilesTraveled();
+                this.avgSpeed = getAvgSpeed();
+            }else {
+                throw new InvalidTripException("The follow trip doesn't meet the correct requirements, \n either this is the wrong driver: (" +
+                        trip.getDriverName() + ") or it doesn't follow the speed parameters: (" + (trip.getMilesTraveled()/trip.getTripDuration()) + ") mph");
+            }
+
     }
 
     /**

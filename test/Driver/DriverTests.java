@@ -1,15 +1,16 @@
 package Driver;
 
+import Trip.Trip;
 import Trip.TripService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class DriverTests {
 
@@ -66,7 +67,26 @@ public class DriverTests {
 
     }
 
+    @Test
+    public void testAddTripThrowErrorTooLow()  {
 
+        Driver Goku = new Driver("Goku");
+        Trip aTrip = new Trip("Goku", TripService.stringToTime("04:00"), TripService.stringToTime("08:00"), 10);
+        assertThrows(InvalidTripException.class, () -> {
+            Goku.addTrip(aTrip);
+        });
+    }
+
+    @Test
+    public void testAddTripThrowErrorTooHigh() {
+
+        Driver Goku = new Driver("Goku");
+        Trip aTrip = new Trip("Goku", TripService.stringToTime("04:00"), TripService.stringToTime("08:00"), 10000);
+        assertThrows(InvalidTripException.class, () -> {
+            Goku.addTrip(aTrip);
+        });
+
+    }
     @Test
     public void testAddTripExampleInput() {
         ArrayList<Driver> drivers = new ArrayList<>();
@@ -101,23 +121,6 @@ public class DriverTests {
         assertEquals(0, Math.round(totalMilesBob), 0);
     }
 
-    @Test
-    public void testaddTripThrowErrorTooLow() {
-        Assertions.assertThrows(InvalidTripException.class, () -> {
-            ArrayList<Driver> drivers = new ArrayList<>();
-            DriverService.addDriver(drivers, "Goku");
-            TripService.addTrip(drivers, "Goku", "04:00", "08:00", "10");
-        });
-    }
-
-    @Test
-    public void testAddTripThrowErrorTooHigh() {
-        Assertions.assertThrows(InvalidTripException.class, () -> {
-            ArrayList<Driver> drivers = new ArrayList<>();
-            DriverService.addDriver(drivers, "Goku");
-            TripService.addTrip(drivers, "Goku", "04:00", "08:00", "100000");
-        });
-    }
 
     @Test
     public void testGenerateReportSingleEntry() {

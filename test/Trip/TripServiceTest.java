@@ -1,19 +1,17 @@
 package Trip;
 
 import Driver.Driver;
+import Driver.InvalidTripException;
 import Driver.DriverService;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class TripServiceTest {
 
@@ -33,7 +31,7 @@ public class TripServiceTest {
     }
 
     @Test
-    public void testStringToTime() throws ParseException {
+    public void testStringToTime() {
         LocalTime time = LocalTime.parse("05:00");
         assertEquals(time,TripService.stringToTime("05:00"));
     }

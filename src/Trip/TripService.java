@@ -2,11 +2,9 @@ package Trip;
 
 import Driver.Driver;
 import Driver.InvalidTripException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class TripService {
     public static void addTrip(ArrayList<Driver> drivers, String driverName, String startTime, String endTime, String milesDriven)  {
@@ -15,14 +13,14 @@ public class TripService {
             if (driverName.equals(driver.getDriverName())) {
                 try {
                     driver.addTrip(new Trip(driverName, stringToTime(startTime), stringToTime(endTime), Double.parseDouble(milesDriven)));
-                } catch (ParseException | InvalidTripException e) {
+                } catch (InvalidTripException e) {
                     e.printStackTrace();
                 }
             }
         });
     }
 
-    static LocalTime stringToTime(String str) throws ParseException {
+    public static LocalTime stringToTime(String str){
         return LocalTime.parse(str);
     }
 }

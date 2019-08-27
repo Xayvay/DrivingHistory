@@ -20,7 +20,7 @@ public class Trip {
     private double milesDriven;
 
 
-    Trip(String driverName, LocalTime startTime, LocalTime endTime, double milesDriven) {
+   public Trip(String driverName, LocalTime startTime, LocalTime endTime, double milesDriven) {
         this.driverName = driverName;
         this.startTime = startTime;
         this.endTime = endTime;
