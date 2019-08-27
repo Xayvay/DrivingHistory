@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * <h1>ReportProcessor</h1>
- * The FileProcessor Object, meant for creating instances of the reportProcessor.
+ * The ReportProcessor Object, meant for creating instances of the reportProcessor.
  * Will process the input and output files
  *
  * @author Xavier Shelton
@@ -76,6 +76,11 @@ public class ReportProcessor {
                 throw new IllegalStateException("This line should be unreachable, please provide a file that is formatted correctly");
         }
     }
+
+    private void fileWriter(PrintWriter outputStream) {
+
+    }
+
 
 
 }

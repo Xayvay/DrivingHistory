@@ -1,5 +1,6 @@
 package Trip;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 /**
@@ -13,13 +14,13 @@ import java.util.Date;
  */
 public class Trip {
     private String driverName;
-    private Date startTime;
-    private Date endTime;
+    private LocalTime startTime;
+    private LocalTime endTime;
     private double tripDuration;
     private double milesDriven;
 
 
-    Trip(String driverName, Date startTime, Date endTime, double milesDriven) {
+    Trip(String driverName, LocalTime startTime, LocalTime endTime, double milesDriven) {
         this.driverName = driverName;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -56,17 +57,14 @@ public class Trip {
     /**
      * A method that converts a date type containing a given time to hours.
      * <p>
-     * (FYI: the startDateValue of 18000000 is the default milliseconds added from 1970-01-01 00:00:00)
-     * Can improve this method to subtract 1970-01-01 in its milliseconds form but it is later subtracted in the getDuration method
      *
      * @param time The start or end time of a trip in a date type
      */
-    double convertToHours(Date time) {
-        double startDateMillis = 18000000;
-        double milsecsToMin = 60000.0;
-        double givenTime = time.getTime() - startDateMillis;
-        double timeInMinutes = givenTime / milsecsToMin;
+    double convertToHours(LocalTime time) {
 
-        return timeInMinutes / 60;
+        double givenHour = time.getHour();
+        double givenMinutes = time.getMinute() / 60.0;
+
+        return givenHour + givenMinutes;
     }
 }

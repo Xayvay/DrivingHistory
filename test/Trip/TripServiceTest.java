@@ -6,12 +6,14 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public class TripServiceTest {
 
@@ -19,25 +21,20 @@ public class TripServiceTest {
     public void testAddTrip(){
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Goku");
-        TripService.addTrip(drivers,"Goku","04:00","08:00","10");
-        double avgSpeedCheck = 0;
-        double milesCheck = 0.0;
-        for (Driver driver : drivers) {
-            if (driver.getDriverName().equals("Goku")) {
-                avgSpeedCheck = driver.getAvgSpeed();
-                milesCheck = driver.getTotalMiles();
-                break;
-            }
-        }
+        TripService.addTrip(drivers,"Goku","04:00","08:00","29");
+        Optional<Driver> optionalGoku = drivers.stream().filter(driver -> driver.getDriverName().equals("Goku")).findFirst();
+        assertFalse(optionalGoku.isEmpty());
 
-        assertEquals(2.5,avgSpeedCheck,0);
-        assertEquals(10,milesCheck,0);
+        double avgSpeed = optionalGoku.get().getAvgSpeed();
+        double totalMiles = optionalGoku.get().getTotalMiles();
+
+        assertEquals(7.25,avgSpeed,0);
+        assertEquals(29,totalMiles,0);
     }
 
     @Test
     public void testStringToTime() throws ParseException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-        Date time = new SimpleDateFormat("HH:mm").parse("05:00");
+        LocalTime time = LocalTime.parse("05:00");
         assertEquals(time,TripService.stringToTime("05:00"));
     }
 

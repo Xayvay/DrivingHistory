@@ -83,14 +83,14 @@ public class Driver {
      *
      * @param trip A trip that the driver has drove
      */
-    public void addTrip(Trip trip) {
+    public void addTrip(Trip trip) throws InvalidTripException {
 
         if (trip.getDriverName().equals(this.driverName) && trip.isValid()) {
             this.trips.add(trip);
             this.totalMiles += trip.getMilesTraveled();
             this.avgSpeed = getAvgSpeed();
         } else {
-            throw new java.lang.RuntimeException("The follow trip doesn't meet the correct requirements, \n either this is the wrong driver: (" +
+            throw new InvalidTripException("The follow trip doesn't meet the correct requirements, \n either this is the wrong driver: (" +
                     trip.getDriverName() + ") or it doesn't follow the speed parameters: (" + (trip.getMilesTraveled()/trip.getTripDuration()) + ") mph");
         }
     }
