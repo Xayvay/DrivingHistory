@@ -22,11 +22,19 @@ Driving History is a java application that will process an input file (.txt) wit
 - Sort the output by most miles driven to least. 
 - Round miles and miles per hour to the nearest integer.
 
-#### From first glance it seems like I need a:
+#### From first glance
+
+Application Structure:
 - Main Class
-- Driver Class
-- Trip Class
-- Report Class
+- Driver Package
+* Driver Service 
+* Driver 
+- Trip Package
+* Trip Service
+* Trip 
+- Report Package
+* Report Service
+* Report
 
 Now going back to my initial key observations it seems like I want to be able to process an input file.
 Debating if I want this functionality in main or reports or in its own utils class called file processor or something of that nature.
