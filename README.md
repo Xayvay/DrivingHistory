@@ -4,7 +4,11 @@ Driving History is a java application that will process an input file (.txt) wit
 
 # How To Deploy
 
-# Initial Key Observations
+# How To Run
+
+# Coding Process
+
+## Initial Key Observations
 
 - The code will process an input file.
 - Each line in the input file will start with a command. 
@@ -18,9 +22,7 @@ Driving History is a java application that will process an input file (.txt) wit
 - Sort the output by most miles driven to least. 
 - Round miles and miles per hour to the nearest integer.
 
-# Coding Process
-
-From first glance it seems like I need a:
+#### From first glance it seems like I need a:
 - Main Class
 - Driver Class
 - Trip Class
