@@ -22,7 +22,7 @@ Driving History is a java application that will process an input file (.txt) wit
 - Sort the output by most miles driven to least. 
 - Round miles and miles per hour to the nearest integer.
 
-#### From first glance
+#### From First Glance
 
 Application Structure:
 
