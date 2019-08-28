@@ -26,10 +26,10 @@ Driving History is a java application that will process an input file (.txt) wit
 
 Application Structure:
 
-A. Main Class
-B. Driver Package - Driver Service and Drive Object
-C. Trip Package - Trip Service and Trip Object
-D. Report Package - Report Service and Report Object
+* Main Class
+* Driver Package - Driver Service and Drive Object
+* Trip Package - Trip Service and Trip Object
+* Report Package - Report Service and Report Object
 
 Now going back to my initial key observations it seems like I want to be able to process an input file.
 Debating if I want this functionality in main or reports or in its own utils class called file processor or something of that nature.
