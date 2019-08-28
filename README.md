@@ -8,7 +8,7 @@ Driving History is a java application that will process an input file (.txt) wit
 
 # Coding Process
 
-## Initial Key Observations
+### Initial Key Observations
 
 - The code will process an input file.
 - Each line in the input file will start with a command. 
