@@ -94,15 +94,32 @@ public class ReportProcessorService {
         }
     }
 
+    /**
+     * Writes the report output to a file
+     *
+     * @param reportOutput The report output String
+     */
     private static void fileWriter( String reportOutput) throws IOException {
         PrintWriter outputStream = new PrintWriter(new FileWriter("DrivingHistory.txt"));
+        outputStream.write(reportOutput);
 
     }
 
+    /**
+     * Write the report output to the console
+     *
+     * @param reportOutput The report output String
+     *
+     */
     private static void consoleWriter(String reportOutput) {
         System.out.println(reportOutput);
     }
 
+    /**
+     * Runs ConsoleWriter and fileWriter to return reports
+     *
+     * @param reportOutput The report output String
+     */
     private static void reportGenerator( String reportOutput) throws IOException {
         consoleWriter(reportOutput);
         fileWriter(reportOutput);
