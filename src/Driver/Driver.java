@@ -98,7 +98,7 @@ public class Driver {
      * A method that generates the drivers report (driveName: totaMiles @ avgSpeed)
      *
      */
-    String generateDriverReport() {
+    public String generateDriverReport() {
         if(this.totalMiles == 0){
             return this.driverName + ": " + 0 + " miles";
         }

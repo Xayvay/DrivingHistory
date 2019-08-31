@@ -3,6 +3,7 @@ package Report;
 import Driver.Driver;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  *
@@ -15,21 +16,24 @@ import java.util.ArrayList;
  * @since   2019-08-15
  */
 public class Report {
-    private ArrayList<String> drivers;
+    private ArrayList<Driver> drivers;
 
-    public Report(){
-        this.drivers = new ArrayList<String>();
+    public Report(ArrayList<Driver> drivers){
+        this.drivers = drivers;
     }
 
-    public static String printReport(){
-        return "";
+    public String printReport(){
+        organizeDrivers();
+        return recordDriverOutput(this.drivers);
     }
 
-    public static void addDriver(Driver driver){
-
-    }
-    private static void organizeDrivers(){
-
+    private void organizeDrivers(){
+        this.drivers.sort(Comparator.comparingDouble(d -> d.getTotalMiles()));
     }
 
+    private String recordDriverOutput(ArrayList<Driver> drivers){
+        StringBuilder driverOutput = new StringBuilder("");
+        drivers.forEach(driver -> driverOutput.append(driver.generateDriverReport().concat("\n")));
+        return driverOutput.toString();
+    }
 }

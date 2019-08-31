@@ -2,11 +2,10 @@ package ReportProcessor;
 
 import Driver.Driver;
 import Driver.DriverService;
-import Report.Report;
+import Report.ReportService;
 import Trip.TripService;
 
 import java.io.*;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -30,13 +29,14 @@ public class ReportProcessorService {
      */
     public static void processReport(String input) throws IOException {
         ArrayList<Driver> drivers = new ArrayList<Driver>();
-        Report report = new Report();
 
         if (input.endsWith(".txt")) {
             fileReader(input, drivers);
         } else {
             systemInputReader(drivers);
         }
+
+        reportGenerator(ReportService.printDriverHistory(drivers));
     }
 
     /**
@@ -100,11 +100,11 @@ public class ReportProcessorService {
     }
 
     private static void consoleWriter(String reportOutput) {
-
+        System.out.println(reportOutput);
     }
 
-    private static void reportGenerator() {
-        //consoleWriter();
-        //fileWriter(outputStream,);
+    private static void reportGenerator( String reportOutput) throws IOException {
+        consoleWriter(reportOutput);
+        fileWriter(reportOutput);
     }
 }
