@@ -30,15 +30,17 @@ Application Structure:
 * Driver Package - Driver Service and Drive Object
 * Trip Package - Trip Service and Trip Object
 * Report Package - Report Service and Report Object
+* ReportProcessor Package - ReportProcessor Service
 
 Now going back to my initial key observations it seems like I want to be able to process an input file.
 Debating if I want this functionality in main or reports or in its own utils class called file processor or something of that nature.
 
 Created a FileProcessor class that will process the file in and utilize the Driver,Trip, and Reports class, also created an inputStream for reading the files.
 
-### ReportProcessor class
+### ReportProcessorService class
 
-I changed my fileprocessor class to reportsprocessor because it is ultimately processing a report with the correct driving history.
+I changed my fileprocessor class to ReportProcessorService because it is ultimately providing a service that will processing an input file, Call multiple services to update that file and then generate a report with the correct driving history.
+
 It will need to:
 
 - Read a file
@@ -47,9 +49,15 @@ It will need to:
 - Record everything on Reports
 - Spit our results on console or in output file... or both.
 
-While staring at my fileReader method for awhile. It was safe to determine that I can parse each of these lines into their correct "silo" of Driver and Trip. Yet I didnt want to overload these objects with methods so I created a DriverService and TripService class.
+#### Processing Report
 
-This class will initialize the Driver and Trip classes and then i'll add getters and setters for the Driver and Trip Objects.
+#### Reading File
+
+#### Parsing
+
+It was safe to determine that I can parse each of these lines into their correct "silo" of Driver or Trip. Yet I didnt want to simply create a new driver/trip object into my report processor everytime I needed to add a new one. So I create a DriverService and TripService class that would do that for me. When a line is parsed the parseLine method is called which will select the correct service to run.
+
+#### Write Output
 
 After the implementation of the Driver And Trip classes I want to start implementation on the Report class.
 To do this I first would like to be able to output this data on a file within a filewriter method. In which the file writer method will call another method called obtain reports. The obtainReports method will then call the reportService to add a report to the file.
