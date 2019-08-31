@@ -3,7 +3,6 @@ package Report;
 import Driver.Driver;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -33,7 +32,7 @@ public class Report {
     }
 
     private String recordDriverOutput(ArrayList<Driver> drivers){
-        StringBuilder driverOutput = new StringBuilder("");
+        StringBuffer driverOutput = new StringBuffer("");
         drivers.forEach(driver -> driverOutput.append(driver.generateDriverReport().concat("\n")));
         return driverOutput.toString();
     }
