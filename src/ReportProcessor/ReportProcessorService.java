@@ -1,8 +1,8 @@
-package Utils;
+package ReportProcessor;
 
 import Driver.Driver;
-import Report.Report;
 import Driver.DriverService;
+import Report.Report;
 import Trip.TripService;
 
 import java.io.*;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * @version 1.0
  * @since 2019-08-15
  */
-public class ReportProcessor {
+public class ReportProcessorService {
 
 
     /**
@@ -28,15 +28,15 @@ public class ReportProcessor {
      *
      * @param filePath A string of the file path
      */
-    public Boolean processReport(String filePath) throws IOException {
+    public static void processReport(String filePath) throws IOException {
         File inputFile = new File(filePath);
         ArrayList<Driver> drivers = new ArrayList<Driver>();
+        Report report = new Report();
 
         try (BufferedReader inputStream = new BufferedReader(new FileReader(inputFile)); PrintWriter outputStream = new PrintWriter(new FileWriter("DriverHistory.txt"))) {
 
             fileReader(inputStream, drivers);
         }
-        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ public class ReportProcessor {
      *
      * @param inputStream The input stream to read the file
      */
-    private void fileReader(BufferedReader inputStream, ArrayList<Driver> drivers) throws IOException {
+    private static void fileReader(BufferedReader inputStream, ArrayList<Driver> drivers) throws IOException {
         String line;
         try {
             while ((line = inputStream.readLine()) != null) {
@@ -63,7 +63,7 @@ public class ReportProcessor {
      * @param line Seperated line from file
      * @param drivers A group of drivers for adding a new driver or adding a trip for a driver
      */
-    private void parseLine(String line, ArrayList<Driver> drivers) throws ParseException {
+    private static void parseLine(String line, ArrayList<Driver> drivers) throws ParseException {
         String[] outputArray = line.split("\\s+");
         switch (outputArray[0]) {
             case "Driver":
@@ -77,10 +77,15 @@ public class ReportProcessor {
         }
     }
 
-    private void fileWriter(PrintWriter outputStream) {
+    private static void fileWriter(PrintWriter outputStream) {
 
     }
 
+    private static void consoleWriter(String report ){
 
+    }
 
+    private static void reportGenerator(){
+
+    }
 }
