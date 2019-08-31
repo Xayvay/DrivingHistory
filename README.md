@@ -10,7 +10,7 @@ Driving History is a java application that will process an input file (.txt) wit
 
 ### Initial Key Observations
 
-- The code will process an input file.
+- The code will process an input file. You can *either* choose to accept the input via stdin (e.g. if you're using Ruby cat input.txt | ruby yourcode.rb), or as a file name given on the command line
 - Each line in the input file will start with a command. 
 - There are two possible commands:
 1. The first command is Driver, which will register a new Driver in the app. Example:
