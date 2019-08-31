@@ -3,6 +3,7 @@ package Report;
 import Driver.Driver;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -28,7 +29,7 @@ public class Report {
     }
 
     private void organizeDrivers(){
-        this.drivers.sort(Comparator.comparingDouble(d -> d.getTotalMiles()));
+        this.drivers.sort(Comparator.comparingDouble(Driver::getTotalMiles).reversed());
     }
 
     private String recordDriverOutput(ArrayList<Driver> drivers){
