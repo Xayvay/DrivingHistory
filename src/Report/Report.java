@@ -1,5 +1,7 @@
 package Report;
 
+import Driver.Driver;
+
 import java.util.ArrayList;
 
 /**
@@ -13,9 +15,20 @@ import java.util.ArrayList;
  * @since   2019-08-15
  */
 public class Report {
-    private ArrayList<String> drivers = new ArrayList<String>();
+    private ArrayList<String> drivers;
 
     public Report(){
+        this.drivers = new ArrayList<String>();
+    }
+
+    public static String printReport(){
+        return "";
+    }
+
+    public static void addDriver(Driver driver){
+
+    }
+    private static void organizeDrivers(){
 
     }
 

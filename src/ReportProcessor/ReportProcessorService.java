@@ -94,7 +94,8 @@ public class ReportProcessorService {
         }
     }
 
-    private static void fileWriter(PrintWriter outputStream, String reportOutput) {
+    private static void fileWriter( String reportOutput) throws IOException {
+        PrintWriter outputStream = new PrintWriter(new FileWriter("DrivingHistory.txt"));
 
     }
 
@@ -102,8 +103,7 @@ public class ReportProcessorService {
 
     }
 
-    private static void reportGenerator() throws IOException {
-        PrintWriter outputStream = new PrintWriter(new FileWriter("DrivingHistory.txt"));
+    private static void reportGenerator() {
         //consoleWriter();
         //fileWriter(outputStream,);
     }
