@@ -13,6 +13,10 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         // Check for the arguments
-        if (null != args[0]) ReportProcessorService.processReport(args[0]);
+        if (null != args[0]) {
+            ReportProcessorService.processReport(args[0]);
+        }else{
+            ReportProcessorService.processReport("");
+        }
     }
 }

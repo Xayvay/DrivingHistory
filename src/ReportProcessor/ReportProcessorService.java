@@ -8,6 +8,7 @@ import Trip.TripService;
 import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 /**
@@ -21,21 +22,20 @@ import java.util.ArrayList;
  */
 public class ReportProcessorService {
 
-
     /**
      * Takes in a file location string, read the the file at that location generate
      * a new file
      *
-     * @param filePath A string of the file path
+     * @param input A string containing the users input of a file path or stdin
      */
-    public static void processReport(String filePath) throws IOException {
-        File inputFile = new File(filePath);
+    public static void processReport(String input) throws IOException {
         ArrayList<Driver> drivers = new ArrayList<Driver>();
         Report report = new Report();
 
-        try (BufferedReader inputStream = new BufferedReader(new FileReader(inputFile)); PrintWriter outputStream = new PrintWriter(new FileWriter("DriverHistory.txt"))) {
-
-            fileReader(inputStream, drivers);
+        if (input.endsWith(".txt")) {
+            fileReader(input, drivers);
+        } else {
+            systemInputReader(drivers);
         }
     }
 
@@ -43,9 +43,12 @@ public class ReportProcessorService {
      * Reads input file and sends input to report to manage the info
      * correctly
      *
-     * @param inputStream The input stream to read the file
+     * @param input   The input from the user
+     * @param drivers an empty group of drivers
      */
-    private static void fileReader(BufferedReader inputStream, ArrayList<Driver> drivers) throws IOException {
+    private static void fileReader(String input, ArrayList<Driver> drivers) throws IOException {
+        File inputFile = new File(input);
+        BufferedReader inputStream = new BufferedReader(new FileReader(inputFile));
         String line;
         try {
             while ((line = inputStream.readLine()) != null) {
@@ -57,13 +60,27 @@ public class ReportProcessorService {
     }
 
     /**
+     * Reads user input into console and sends input to report to manage the info
+     * correctly
+     *
+     * @param drivers an empty group of drivers
+     */
+    private static void systemInputReader(ArrayList<Driver> drivers) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please insert valid driving history into console:");
+        while (in.hasNext()) {
+            parseLine(in.nextLine(), drivers);
+        }
+    }
+
+    /**
      * Reads in a line and seperates it to determine if it Driver information is being stored or Trip information.
      * Then Calls that specific service
      *
-     * @param line Seperated line from file
+     * @param line    Seperated line from file
      * @param drivers A group of drivers for adding a new driver or adding a trip for a driver
      */
-    private static void parseLine(String line, ArrayList<Driver> drivers) throws ParseException {
+    private static void parseLine(String line, ArrayList<Driver> drivers) {
         String[] outputArray = line.split("\\s+");
         switch (outputArray[0]) {
             case "Driver":
@@ -77,15 +94,17 @@ public class ReportProcessorService {
         }
     }
 
-    private static void fileWriter(PrintWriter outputStream) {
+    private static void fileWriter(PrintWriter outputStream, String reportOutput) {
 
     }
 
-    private static void consoleWriter(String report ){
+    private static void consoleWriter(String reportOutput) {
 
     }
 
-    private static void reportGenerator(){
-
+    private static void reportGenerator() throws IOException {
+        PrintWriter outputStream = new PrintWriter(new FileWriter("DrivingHistory.txt"));
+        //consoleWriter();
+        //fileWriter(outputStream,);
     }
 }
