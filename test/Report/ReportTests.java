@@ -26,6 +26,6 @@ public class ReportTests {
         assertEquals(
                 "Alex: 42 miles @ 34 mph\n" +
                         "Dan: 39 miles @ 47 mph\n" +
-                        "Bob: 0 miles\n", ReportService.printDriverHistory(drivers));
+                        "Bob: 0 miles", ReportService.printDriverHistory(drivers));
     }
 }

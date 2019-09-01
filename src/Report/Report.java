@@ -34,6 +34,6 @@ public class Report {
     private String recordDriverOutput(ArrayList<Driver> drivers){
         StringBuffer driverOutput = new StringBuffer("");
         drivers.forEach(driver -> driverOutput.append(driver.generateDriverReport().concat("\n")));
-        return driverOutput.toString();
+        return driverOutput.toString().trim();
     }
 }

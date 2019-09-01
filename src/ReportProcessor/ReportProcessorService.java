@@ -107,6 +107,7 @@ public class ReportProcessorService {
     private static void fileWriter( String reportOutput) throws IOException {
         PrintWriter outputStream = new PrintWriter(new FileWriter("DrivingHistory.txt"));
         outputStream.write(reportOutput);
+        outputStream.close();
     }
 
     /**
