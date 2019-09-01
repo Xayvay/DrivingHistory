@@ -5,6 +5,7 @@ Driving History is a java application that will process an input file (.txt) wit
 # How To Deploy
 
 # How To Run
+FYI: I compiled the project with java jdk-12.0.2
 
 # Coding Process
 
