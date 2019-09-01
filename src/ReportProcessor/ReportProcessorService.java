@@ -60,22 +60,28 @@ public class ReportProcessorService {
     }
 
     /**
-     * Reads user input into console and sends input to report to manage the info
+     * Reads user input into console (Either from file or driver data ) then sends input to report to manage the info
      * correctly
      *
      * @param drivers an empty group of drivers
      */
-    private static void systemInputReader(ArrayList<Driver> drivers) {
-        System.out.println("Please insert valid driving history into console:");
+    private static void systemInputReader(ArrayList<Driver> drivers) throws IOException {
+        System.out.println("Pick an option:\n" +
+                "A. Please insert a valid driving history file path ending in (.txt).\n" +
+                "B. Please type in valid driver names and their driving history, When done type exit and press enter for the results: \n");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
 
-        while(!input.equals("exit")){
-            parseLine(input, drivers);
-            input = in.nextLine();
+        while (!input.equals("exit")) {
+            if (input.endsWith(".txt")) {
+                fileReader(input, drivers);
+                input = "exit";
+            } else {
+                parseLine(input, drivers);
+                input = in.nextLine();
+            }
         }
         in.close();
-
     }
 
     /**
@@ -104,7 +110,7 @@ public class ReportProcessorService {
      *
      * @param reportOutput The report output String
      */
-    private static void fileWriter( String reportOutput) throws IOException {
+    private static void fileWriter(String reportOutput) throws IOException {
         PrintWriter outputStream = new PrintWriter(new FileWriter("DrivingHistory.txt"));
         outputStream.write(reportOutput);
         outputStream.close();
@@ -114,7 +120,6 @@ public class ReportProcessorService {
      * Write the report output to the console
      *
      * @param reportOutput The report output String
-     *
      */
     private static void consoleWriter(String reportOutput) {
         System.out.println(reportOutput);
@@ -125,7 +130,7 @@ public class ReportProcessorService {
      *
      * @param reportOutput The report output String
      */
-    private static void reportGenerator( String reportOutput) throws IOException {
+    private static void reportGenerator(String reportOutput) throws IOException {
         consoleWriter(reportOutput);
         fileWriter(reportOutput);
     }

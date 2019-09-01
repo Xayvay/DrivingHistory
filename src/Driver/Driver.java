@@ -74,6 +74,7 @@ public class Driver {
         }
         return miles;
     }
+
     /**
      * A method that adds a trip to the droves trips arraylist
      * Updates the total miles driven
@@ -83,26 +84,23 @@ public class Driver {
      */
     public void addTrip(Trip trip) throws InvalidTripException {
 
-            if (trip.getDriverName().equals(this.driverName) && trip.isValid()) {
-                this.trips.add(trip);
-                this.totalMiles += trip.getMilesTraveled();
-                this.avgSpeed = getAvgSpeed();
-            }else {
-                throw new InvalidTripException("The follow trip doesn't meet the correct requirements, \n either this is the wrong driver: (" +
-                        trip.getDriverName() + ") or it doesn't follow the speed parameters: (" + (trip.getMilesTraveled()/trip.getTripDuration()) + ") mph");
-            }
-
+        if (trip.getDriverName().equals(this.driverName) && trip.isValid()) {
+            this.trips.add(trip);
+            this.totalMiles += trip.getMilesTraveled();
+            this.avgSpeed = getAvgSpeed();
+        } else {
+            throw new InvalidTripException("The follow trip doesn't meet the correct requirements, \n either this is the wrong driver: (" +
+                    trip.getDriverName() + ") or it doesn't follow the speed parameters: (" + (trip.getMilesTraveled() / trip.getTripDuration()) + ") mph");
+        }
     }
 
     /**
      * A method that generates the drivers report (driveName: totaMiles @ avgSpeed)
-     *
      */
     public String generateDriverReport() {
-        if(this.totalMiles == 0){
+        if (this.totalMiles == 0) {
             return this.driverName + ": " + 0 + " miles";
         }
-        return this.driverName + ": " + Math.round(this.totalMiles) + " miles @ " + Math.round(this.avgSpeed)+ " mph";
+        return this.driverName + ": " + Math.round(this.totalMiles) + " miles @ " + Math.round(this.avgSpeed) + " mph";
     }
-
 }
