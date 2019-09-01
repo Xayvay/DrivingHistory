@@ -66,11 +66,16 @@ public class ReportProcessorService {
      * @param drivers an empty group of drivers
      */
     private static void systemInputReader(ArrayList<Driver> drivers) {
-        Scanner in = new Scanner(System.in);
         System.out.println("Please insert valid driving history into console:");
-        while (in.hasNext()) {
-            parseLine(in.nextLine(), drivers);
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+
+        while(!input.equals("exit")){
+            parseLine(input, drivers);
+            input = in.nextLine();
         }
+        in.close();
+
     }
 
     /**
@@ -90,7 +95,7 @@ public class ReportProcessorService {
                 TripService.addTrip(drivers, outputArray[1], outputArray[2], outputArray[3], outputArray[4]);
                 break;
             default:
-                throw new IllegalStateException("This line should be unreachable, please provide a file that is formatted correctly");
+                throw new IllegalStateException("This line should be unreachable, please provide the correct input");
         }
     }
 
@@ -102,7 +107,6 @@ public class ReportProcessorService {
     private static void fileWriter( String reportOutput) throws IOException {
         PrintWriter outputStream = new PrintWriter(new FileWriter("DrivingHistory.txt"));
         outputStream.write(reportOutput);
-
     }
 
     /**
