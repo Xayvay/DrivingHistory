@@ -15,7 +15,7 @@ public class DriverService {
     /**
      * A method that adds a new driver object to a collection of drivers
      *
-     * @param drivers collection of drivers
+     * @param drivers    collection of drivers
      * @param driverName string representation of a driver's name
      */
     public static void addDriver(ArrayList<Driver> drivers, String driverName) {
@@ -24,8 +24,14 @@ public class DriverService {
         }
     }
 
-    public static boolean safeToAdd(ArrayList<Driver> drivers, String driverName) {
+    /**
+     * A method that checks to see if a driver has already been added to the collection
+     * <p>
+     *
+     * @param drivers    Collection of Driver Objects
+     * @param driverName name of driver
+     */
+    static boolean safeToAdd(ArrayList<Driver> drivers, String driverName) {
         return drivers.stream().noneMatch(driver -> driver.getDriverName().equals(driverName));
     }
-
 }

@@ -1,16 +1,16 @@
 package Driver;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
 
-public class DriverServiceTests {
+class DriverServiceTests {
 
     @Test
-    public void testDriverAdded() {
+    void testDriverAdded() {
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Mike Wizowsky");
 
@@ -19,13 +19,13 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testSafeToAddTrue() {
+    void testSafeToAddTrue() {
         ArrayList<Driver> drivers = new ArrayList<>();
         assertTrue(DriverService.safeToAdd(drivers, "Goku"));
     }
 
     @Test
-    public void testSafeToAddFalse() {
+    void testSafeToAddFalse() {
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Goku");
         assertFalse(DriverService.safeToAdd(drivers, "Goku"));

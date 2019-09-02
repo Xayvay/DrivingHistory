@@ -1,7 +1,6 @@
 package Trip;
 
 import java.time.LocalTime;
-import java.util.Date;
 
 /**
  * <h1>Trip</h1>
@@ -19,8 +18,7 @@ public class Trip {
     private double tripDuration;
     private double milesDriven;
 
-
-   public Trip(String driverName, LocalTime startTime, LocalTime endTime, double milesDriven) {
+    public Trip(String driverName, LocalTime startTime, LocalTime endTime, double milesDriven) {
         this.driverName = driverName;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -28,7 +26,7 @@ public class Trip {
         this.milesDriven = milesDriven;
     }
 
-
+    //Getters
     public String getDriverName() {
         return this.driverName;
     }
@@ -41,8 +39,10 @@ public class Trip {
         return this.milesDriven;
     }
 
+    /**
+     * A method that checks to see if the trips speed is within the parameters of 5 and 100
+     */
     public boolean isValid() {
-
         double miles = (double) Math.round(this.milesDriven);
         double mph = miles / this.tripDuration;
         boolean validation = true;
@@ -61,7 +61,6 @@ public class Trip {
      * @param time The start or end time of a trip in a date type
      */
     double convertToHours(LocalTime time) {
-
         double givenHour = time.getHour();
         double givenMinutes = time.getMinute() / 60.0;
 

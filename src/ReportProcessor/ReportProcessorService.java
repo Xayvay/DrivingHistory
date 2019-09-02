@@ -46,11 +46,11 @@ public class ReportProcessorService {
      * @param input   The input from the user
      * @param drivers an empty group of drivers
      */
-    private static void fileReader(String input, ArrayList<Driver> drivers) throws IOException {
-        File inputFile = new File(input);
-        BufferedReader inputStream = new BufferedReader(new FileReader(inputFile));
-        String line;
+    private static void fileReader(String input, ArrayList<Driver> drivers) {
         try {
+            File inputFile = new File(input);
+            BufferedReader inputStream = new BufferedReader(new FileReader(inputFile));
+            String line;
             while ((line = inputStream.readLine()) != null) {
                 parseLine(line, drivers);
             }
@@ -65,7 +65,7 @@ public class ReportProcessorService {
      *
      * @param drivers an empty group of drivers
      */
-    private static void systemInputReader(ArrayList<Driver> drivers) throws IOException {
+    static void systemInputReader(ArrayList<Driver> drivers) {
         System.out.println("Pick an option:\n" +
                 "A. Please insert a valid driving history file path ending in (.txt).\n" +
                 "B. Please type in valid driver names and their driving history, When done type exit and press enter for the results: \n");
@@ -75,7 +75,7 @@ public class ReportProcessorService {
         while (!input.equals("exit")) {
             if (input.endsWith(".txt")) {
                 fileReader(input, drivers);
-                input = "exit";
+                break;
             } else {
                 parseLine(input, drivers);
                 input = in.nextLine();
@@ -91,7 +91,7 @@ public class ReportProcessorService {
      * @param line    Seperated line from file
      * @param drivers A group of drivers for adding a new driver or adding a trip for a driver
      */
-    private static void parseLine(String line, ArrayList<Driver> drivers) {
+    static void parseLine(String line, ArrayList<Driver> drivers) {
         String[] outputArray = line.split("\\s+");
         switch (outputArray[0]) {
             case "Driver":
@@ -101,7 +101,7 @@ public class ReportProcessorService {
                 TripService.addTrip(drivers, outputArray[1], outputArray[2], outputArray[3], outputArray[4]);
                 break;
             default:
-                throw new IllegalStateException("This line should be unreachable, please provide the correct input");
+                throw new IllegalStateException("Wrong input given. Please check your driver history input commands for any issues.");
         }
     }
 

@@ -1,34 +1,45 @@
 package Trip;
 
 import Driver.Driver;
-import Driver.InvalidTripException;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 
 /**
- *
  * <h1>DriverService</h1>
  * The DriverService class will initiate any Driver related functionality.
  *
- * @author  Xavier Shelton
+ * @author Xavier Shelton
  * @version 1.0
- * @since   2019-08-15
+ * @since 2019-08-15
  */
 public class TripService {
-    public static void addTrip(ArrayList<Driver> drivers, String driverName, String startTime, String endTime, String milesDriven)  {
 
+    /**
+     * A void method that adds a trip for a diver
+     * <p>
+     *
+     * @param drivers     Collection of Driver Objects
+     * @param driverName  A drivers name
+     * @param startTime   The start time of a trip
+     * @param endTime     the end time of a trip
+     * @param milesDriven a duration of the miles traveled
+     */
+    public static void addTrip(ArrayList<Driver> drivers, String driverName, String startTime, String endTime, String milesDriven) {
         drivers.forEach(driver -> {
             if (driverName.equals(driver.getDriverName())) {
-                try {
-                    driver.addTrip(new Trip(driverName, stringToTime(startTime), stringToTime(endTime), Double.parseDouble(milesDriven)));
-                } catch (InvalidTripException e) {
-                    e.printStackTrace();
-                }
+                driver.addTrip(new Trip(driverName, stringToTime(startTime), stringToTime(endTime), Double.parseDouble(milesDriven)));
             }
         });
     }
 
-    public static LocalTime stringToTime(String str){
-        return LocalTime.parse(str);
+    /**
+     * A method that converts a string of time into LocalTime
+     * <p>
+     *
+     * @param time The start or end time of a trip in a date type
+     */
+    public static LocalTime stringToTime(String time) {
+        return LocalTime.parse(time);
     }
 }

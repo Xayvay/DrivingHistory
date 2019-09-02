@@ -1,6 +1,5 @@
 package Driver;
 
-
 import Trip.Trip;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
  * @since 2019-08-15
  */
 public class Driver {
-    private String driverName = "";
+    private String driverName;
     private double totalMiles;
     private double avgSpeed;
     private ArrayList<Trip> trips;
@@ -33,16 +32,8 @@ public class Driver {
         return this.driverName;
     }
 
-    public void setTotalMiles(long totalMiles) {
-        this.totalMiles = totalMiles;
-    }
-
     public double getTotalMiles() {
         return this.totalMiles;
-    }
-
-    public void setAvgSpeed(long avgSpeed) {
-        this.avgSpeed = avgSpeed;
     }
 
     public double getAvgSpeed() {
@@ -82,15 +73,11 @@ public class Driver {
      *
      * @param trip A trip that the driver has drove
      */
-    public void addTrip(Trip trip) throws InvalidTripException {
-
-        if (trip.getDriverName().equals(this.driverName) && trip.isValid()) {
-            this.trips.add(trip);
-            this.totalMiles += trip.getMilesTraveled();
-            this.avgSpeed = getAvgSpeed();
-        } else {
-            throw new InvalidTripException("The follow trip doesn't meet the correct requirements, \n either this is the wrong driver: (" +
-                    trip.getDriverName() + ") or it doesn't follow the speed parameters: (" + (trip.getMilesTraveled() / trip.getTripDuration()) + ") mph");
+    public void addTrip(Trip trip) {
+        try {
+            addTripValues(trip);
+        } catch (InvalidTripException e) {
+            e.printStackTrace();
         }
     }
 
@@ -102,5 +89,21 @@ public class Driver {
             return this.driverName + ": " + 0 + " miles";
         }
         return this.driverName + ": " + Math.round(this.totalMiles) + " miles @ " + Math.round(this.avgSpeed) + " mph";
+    }
+
+    /**
+     * Updating trip values
+     *
+     * @param trip A trip that the driver has drove
+     */
+    private void addTripValues(Trip trip) throws InvalidTripException {
+        if (trip.isValid()) {
+            this.trips.add(trip);
+            this.totalMiles += trip.getMilesTraveled();
+            this.avgSpeed = getAvgSpeed();
+        } else {
+            throw new InvalidTripException("The follow trip doesn't meet the correct requirements, \n either this is the wrong driver: (" +
+                    trip.getDriverName() + ") or it doesn't follow the speed parameters: (" + (trip.getMilesTraveled() / trip.getTripDuration()) + ") mph");
+        }
     }
 }

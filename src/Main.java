@@ -11,11 +11,12 @@ import java.io.IOException;
  * @since 2019-08-15
  */
 public class Main {
+
     public static void main(String[] args) throws IOException {
         // Check arguments for a file or stdin
         if (args.length > 0) {
             ReportProcessorService.processReport(args[0]);
-        }else{
+        } else {
             ReportProcessorService.processReport("");
         }
     }

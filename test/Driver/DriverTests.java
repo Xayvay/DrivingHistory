@@ -4,18 +4,15 @@ import Trip.Trip;
 import Trip.TripService;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
-public class DriverTests {
+class DriverTests {
 
     @Test
-    public void testName() {
+    void testName() {
         Driver mike = new Driver("Mike Wizowsky");
         Driver sully = new Driver("James P. Sullivan");
         Driver noOne = new Driver("noOne");
@@ -25,15 +22,17 @@ public class DriverTests {
     }
 
     @Test
-    public void getDriverReport() {
-        Driver mike = new Driver("Mike Wizowsky");
-        mike.setTotalMiles(20);
-        mike.setAvgSpeed(6);
-        assertEquals("Mike Wizowsky: 20 miles @ 6 mph", mike.generateDriverReport());
+    void testSimpleDriverReport() {
+        ArrayList<Driver> drivers = new ArrayList<>();
+        DriverService.addDriver(drivers, "Mike");
+        TripService.addTrip(drivers, "Mike", "04:00", "09:00", "220");
+        Optional<Driver> optionalMike = drivers.stream().filter(driver -> driver.getDriverName().equals("Mike")).findFirst();
+        assertTrue(optionalMike.isPresent());
+        assertEquals("Mike: 220 miles @ 44 mph", optionalMike.get().generateDriverReport());
     }
 
     @Test
-    public void testAddTrip() {
+    void testAddTrip() {
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Goku");
         TripService.addTrip(drivers, "Goku", "04:00", "09:00", "220");
@@ -49,7 +48,7 @@ public class DriverTests {
     }
 
     @Test
-    public void testAddTrips() {
+    void testAddTrips() {
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Goku");
         TripService.addTrip(drivers, "Goku", "04:00", "09:00", "30");
@@ -64,31 +63,34 @@ public class DriverTests {
 
         assertEquals(20.0, Math.round(avgSpeed), 0);
         assertEquals(330, Math.round(totalMiles), 0);
-
     }
 
     @Test
-    public void testAddTripThrowErrorTooLow()  {
-
+    void testAddTripThrowErrorTooLow() {
         Driver Goku = new Driver("Goku");
         Trip aTrip = new Trip("Goku", TripService.stringToTime("04:00"), TripService.stringToTime("08:00"), 10);
-        assertThrows(InvalidTripException.class, () -> {
+        try {
             Goku.addTrip(aTrip);
-        });
+        } catch (Exception e) {
+            assertThrows(InvalidTripException.class, () -> Goku.addTrip(aTrip));
+        }
     }
 
     @Test
-    public void testAddTripThrowErrorTooHigh() {
-
+    void testAddTripThrowErrorTooHigh() {
         Driver Goku = new Driver("Goku");
         Trip aTrip = new Trip("Goku", TripService.stringToTime("04:00"), TripService.stringToTime("08:00"), 10000);
-        assertThrows(InvalidTripException.class, () -> {
+        try {
             Goku.addTrip(aTrip);
-        });
+        } catch (Exception e) {
+            assertThrows(InvalidTripException.class, () -> Goku.addTrip(aTrip)
+            );
+        }
 
     }
+
     @Test
-    public void testAddTripExampleInput() {
+    void testAddTripExampleInput() {
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Dan");
         DriverService.addDriver(drivers, "Alex");
@@ -123,7 +125,7 @@ public class DriverTests {
 
 
     @Test
-    public void testGenerateReportSingleEntry() {
+    void testGenerateReportSingleEntry() {
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Goku");
         TripService.addTrip(drivers, "Goku", "04:00", "08:00", "40");
@@ -136,7 +138,7 @@ public class DriverTests {
     }
 
     @Test
-    public void testGenerateReportSingleEntryRoundDetermination() {
+    void testGenerateReportSingleEntryRoundDetermination() {
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Goku");
         TripService.addTrip(drivers, "Goku", "04:00", "08:59", "40");
@@ -149,7 +151,7 @@ public class DriverTests {
     }
 
     @Test
-    public void testGenerateReportMultiEntries() {
+    void testGenerateReportMultiEntries() {
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Goku");
         TripService.addTrip(drivers, "Goku", "04:00", "08:00", "37");
@@ -164,7 +166,7 @@ public class DriverTests {
     }
 
     @Test
-    public void testGenerateReportMultiEntriesMultiplePeople() {
+    void testGenerateReportMultiEntriesMultiplePeople() {
         ArrayList<Driver> drivers = new ArrayList<>();
 
         DriverService.addDriver(drivers, "Goku");
@@ -191,7 +193,7 @@ public class DriverTests {
     }
 
     @Test
-    public void testGenerateReportProvidedData() {
+    void testGenerateReportProvidedData() {
         ArrayList<Driver> drivers = new ArrayList<>();
         DriverService.addDriver(drivers, "Dan");
         DriverService.addDriver(drivers, "Alex");
