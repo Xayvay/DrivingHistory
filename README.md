@@ -1,6 +1,6 @@
 # Driving History
 
-Driving History is a java application that will process an input file (.txt) with information based on a driver/s. The application will filter through the list of information and print out a new file with the driver/s name,how many miles they have drove, and their average speed.
+Driving History is a java application that can process input data based on a driver and the trips they take. Once processed the application will output driver data that contains the miles a driver has driven, and their average speed. If multiple driver information is provided. Then the application will output each driver with their information from descending order based on miles driven.
 
 # How To Deploy
 
@@ -33,7 +33,12 @@ Application Structure:
 * Report Package - Report Service and Report Object
 * ReportProcessor Package - ReportProcessor Service
 
-Now going back to my initial key observations it seems like I want to be able to process an input file.
+Now going back to my initial key observations it seems like I want to be able to process an input file. It does also say that you can choose to accept the input via stdin. I know initially the application says to accept an input.txt file but I am not sure if we can assume that correct input into the console as data cannot also be processed. It also says either, which can be interepreted as either this or that, or either or. 
+
+Thus, I will create 2 ways that a user can input data:
+*Insert directly into the console either by an input.txt file or correctly formatted driver data.
+*
+
 Debating if I want this functionality in main or reports or in its own utils class called file processor or something of that nature.
 
 Created a FileProcessor class that will process the file in and utilize the Driver,Trip, and Reports class, also created an inputStream for reading the files.
