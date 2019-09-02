@@ -55,7 +55,7 @@ public class Trip {
     }
 
     /**
-     * A method that converts a date type containing a given time to hours.
+     * A method that converts LocalTime containing a given time to hours.
      * <p>
      *
      * @param time The start or end time of a trip in a date type
