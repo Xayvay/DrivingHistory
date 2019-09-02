@@ -33,15 +33,15 @@ Application Structure:
 * Report Package - Report Service and Report Object
 * ReportProcessor Package - ReportProcessor Service
 
-Now going back to my initial key observations it seems like I want to be able to process an input file. It does also say that you can choose to accept the input via stdin. I know initially the application says to accept an input.txt file but I am not sure if we can assume that correct input into the console as data cannot also be processed. It also says either, which can be interepreted as either this or that, or either or. 
+Now going back to my initial key observations it seems like I want to be able to process an input file. It does also say that you can choose to accept the input via stdin. I know initially the application says to accept an input.txt file but I am not sure if we can assume that correct input into the console as data cannot also be processed (maybe a stretch...Scope creep). It also says either, which can be interepreted as either this or that, or either or. 
 
 Thus, I will create 2 ways that a user can input data:
-*Insert directly into the console either by an input.txt file or correctly formatted driver data.
-*
+* Insert inputFile.txt into command line
+* Insert directly into the console  after running application either by an input.txt file or correctly formatted driver data.
 
-Debating if I want this functionality in main or reports or in its own utils class called file processor or something of that nature.
+Next I am debating if I want this functionality in main or reports or in its own processing class called report processor or something of that nature.
 
-Created a FileProcessor class that will process the file in and utilize the Driver,Trip, and Reports class, also created an inputStream for reading the files.
+Created a ReportProcessor class that will process the file in and utilize the Driver,Trip, and Reports class, then generate output onto the console for instant viewing and a file for later.
 
 ### ReportProcessorService class
 
