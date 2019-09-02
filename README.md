@@ -25,7 +25,13 @@ FYI: I compiled the project with java jdk-12.0.2
 
 #### From First Glance
 
-Application Structure:
+I can make this application in two classes with about 4 methods and 300 lines of code.
+This was my initial thought, and to be honestly this was what I thought the first time I submitted this coding sample.
+Well this time I want to actually think this through.
+
+Thinking of past experiences, I have worked on different applications that delt with microservices. Which in short is building the applications as a collection of different smaller services rather than one whole app. Hmmm, without building a storing data,creating a restcontroller, and consuming the rest calls. I can treat the each object as their own service and call towards them and their methods when needed.
+
+Breaking this up the best way possible:
 
 * Main Class
 * Driver Package - Driver Service and Drive Object
@@ -35,7 +41,7 @@ Application Structure:
 
 Now going back to my initial key observations it seems like I want to be able to process an input file. It does also say that you can choose to accept the input via stdin. I know initially the application says to accept an input.txt file but I am not sure if we can assume that correct input into the console as data cannot also be processed (maybe a stretch...Scope creep). It also says either, which can be interepreted as either this or that, or either or. 
 
-Thus, I will create 2 ways that a user can input data:
+Therefore, I will create 2 ways that a user can input data:
 * Insert inputFile.txt into command line
 * Insert directly into the console  after running application either by an input.txt file or correctly formatted driver data.
 
@@ -45,7 +51,8 @@ Created a ReportProcessor class that will process the file in and utilize the Dr
 
 ### ReportProcessorService class
 
-I changed my fileprocessor class to ReportProcessorService because it is ultimately providing a service that will processing an input file, Call multiple services to update that file and then generate a report with the correct driving history.
+#### Naming Matters
+I initially changed my fileprocessor class to ReportProcessorService because it is ultimately providing a service that will processing an input file, Call multiple services to update that file and then generate a report with the correct driving history.
 
 It will need to:
 
