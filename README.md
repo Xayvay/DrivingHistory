@@ -52,7 +52,10 @@ Created a ReportProcessor class that will process the file in and utilize the Dr
 ### ReportProcessorService Class
 
 #### Naming Matters
-I initially created a class called my FileProcessor  but I changed it to ReportProcessorService because it is ultimately providing a service that will processing an input data, then I will call multiple services to update that file, and finally generate a report with the correct driving history.
+I initially created a class called my FileProcessor but I changed it to ReportProcessorService because it is ultimately a microservice that will processing input data, then I will call multiple services to update the input data, and finally generate a report with the correct driving history.
+
+THIS WILL BE MY IVORY TOWER!!
+(of my microservices)
 
 It will need to:
 
