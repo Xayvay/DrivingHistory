@@ -10,12 +10,18 @@ You deploy this onto your computer by:
 * Navigating to the location that you want the repo to be located (i.e.: cd Desktop)
 * Run: git clone $somewhere/XavierSheltonDrivingHistory.gitbundle 
 (i.e.: git clone Downloads/XavierSheltonDrivingHistory.gitbundle)
-* NAvigate to new repo location (i.e.: cd Desktop)
+* Navigate to new repo location (i.e.: cd Desktop/XavierSheltonDrivingHistory)
 
 # How To Run
 FYI: I compiled the project with java jdk-12.0.2
 
+When running the appliction with an intellij built project. You would want to navigate to the Main class within the production folder. From terminal or command prompt you want to:
 
+* Navigate to the project director if you're not already there (i.e.: $somewhere/XavierShelton)
+* Navigate into Driving History Project Folder (i.e.: cd out/production/DrivingHistory)
+* From here you can either run:
+- java Main (This will run the application without arguments)
+- java Main $somefilelocation/somefile.txt (This will run the applcation with an input file)
 
 # The Coding Process
 
