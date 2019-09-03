@@ -7,7 +7,7 @@ Driving History is a java application that can process input data based on a dri
 # How To Run
 FYI: I compiled the project with java jdk-12.0.2
 
-# Coding Process
+# The Coding Process
 
 ### Initial Key Observations
 
@@ -49,7 +49,7 @@ Next I am debating if I want this functionality in main or reports or in its own
 
 Created a ReportProcessor class that will process the file in and utilize the Driver,Trip, and Reports class, then generate output onto the console for instant viewing and a file for later.
 
-### ReportProcessorService class
+### ReportProcessorService Class
 
 #### Naming Matters
 I initially created a class called my FileProcessor  but I changed it to ReportProcessorService because it is ultimately providing a service that will processing an input data, then I will call multiple services to update that file, and finally generate a report with the correct driving history.
@@ -62,17 +62,13 @@ It will need to:
 - Record everything on Reports
 - Spit our results on console or in output file... or both.
 
-#### Processing Report
-
-Determine the input from the user. Call the file reader method or the system input method. Then generate the report.
-
 #### File Reader
 
-If an input file is received. Read it in line by line for parsing
+I need a way to read an input file from the user. If an input file is received, then read it in line by line and send it to a parser.
 
 #### System Input
 
-If user input on console. Read in system input line by line.
+If user input on console. Read in system input line by line and send it to parsing.
 
 #### Parsing
 
@@ -83,15 +79,23 @@ It was safe to determine that I can parse each of these lines into their correct
 After the implementation of the Driver And Trip classes I want to start implementation on the Report class.
 To do this I first would like to be able to output this data on a file within a filewriter method. In which the file writer method will call another method called obtain reports. The obtainReports method will then call the reportService to add a report to the file.
 
-### DriverService class
+#### System Output
 
-Simple service for adding new drivers when a parsed Driver line is given.
+I think I should also be able to see the results on the console as well. I mean when we say report what do we actually mean? I think a report can be a multitude of things but ultimately its a detailed account or statement. So lets be a descriptive as possible and provide the user will many ways to review their results.
 
-### TripService class
+#### Processing Report
 
-Simple service that will add a trip to the designated driver. This will look for the driver and see if the driverName in the parsed Trip line matches a driver in our drivers ArrayList
+I need a method that can determine the input from the user and then spit out the generated report. It will Call the file reader method or the system input method. Then a generate report with the write output and system output methods.
 
-### Driver class
+### DriverService Class
+
+The DriverService Class will function as a microservice for adding new drivers when a parsed Driver line is given.
+
+### TripService Class
+
+The TripService Class will funtion as a microservice that will add a trip to the designated driver. This will look for the driver and see if the driverName in the parsed Trip line matches a driver in our drivers ArrayList
+
+### Driver Class
 
 Took me some time to really figure out what exactly the driver class needed. I initially put the getters and setters as well as the driver name, total miles, average speed, and trips. These are the common qualities for a driver provided in my key observations.
 
@@ -110,7 +114,7 @@ Which lead me to clean up a few methods I thought I needed in the past but do no
 After imnproving my junit, I wanted to have a better way to model issues with possible input scenarios that may occur.
 So I added my own exception called InvalidTripException.
 
-### Trip class
+### Trip Class
 
 With the Trip class I created pre determined methods based off of my initial key observations. Similar to the Driver class. These methods consist of getters and setters for the class members as well as a method to get the duration of a trip (how long it took), get the miles traveled in a trip, is the trip even a valid trip, and convert the trip time to hours.
 
@@ -136,4 +140,19 @@ WHOA! Good thing I am testing this I just realize I didnt add my isValid to the 
 
 While improving test cases I still did not like the way that my convertToHours method functioned. So I updated the Date data type to LocalTime. Which allowed me to improve how this method looked and how the test looked.
 
-### Report class
+### ReportService Class
+
+The ReportService Class will function as a microservice for creating new reports with correctly formatted driver history on it.
+
+### Report Class
+
+Creating the Reports Class was almost a breeze. While working through this project, I made it a priority to test and develope as soon as I created a new method. I would say I did TDD development but if I knew what I exactly wanted to do then I did not use TDD. I guess I didn't ultimately use TDD to its core but I used TDDSS (Test Driven Development's Step Sibling) or a loosly related form of TDD. Anyway, this allowed me to feel confident that everything technically worked and I just needed to spit out the results some how.
+
+When I think about the driver they basically own the trips. The driver has trips because if we have a trip without a driver then what are we actually trying to explain? With that being said. The report basically owns the drivers. I cant have a report on driving history. If I am not reporting any drivers. 
+
+This made it really easy for me to determine what I want in this class.
+* I need to get the driver report
+* Organize the drivers for output
+* PRINT ALL THE THINGS... or drivers.
+
+### Main Class
