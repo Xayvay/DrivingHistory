@@ -64,9 +64,9 @@ It will need to:
 
 #### Processing Report
 
-Determine the input from the user.
+Determine the input from the user. Call the file reader method or the system input method. Then generate the report.
 
-#### Reading File
+#### File Reader
 
 If an input file is received. Read it in line by line for parsing
 
