@@ -52,17 +52,19 @@ Created a ReportProcessor class that will process the file in and utilize the Dr
 ### ReportProcessorService class
 
 #### Naming Matters
-I initially changed my fileprocessor class to ReportProcessorService because it is ultimately providing a service that will processing an input file, Call multiple services to update that file and then generate a report with the correct driving history.
+I initially created a class called my FileProcessor  but I changed it to ReportProcessorService because it is ultimately providing a service that will processing an input data, then I will call multiple services to update that file, and finally generate a report with the correct driving history.
 
 It will need to:
 
-- Read a file
+- Read in input
 - Determine all the key drivers without duplicates
 - Determine the trips that the key drivers may have
 - Record everything on Reports
 - Spit our results on console or in output file... or both.
 
 #### Processing Report
+
+Determine the input from the user.
 
 #### Reading File
 
