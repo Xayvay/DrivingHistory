@@ -68,6 +68,12 @@ Determine the input from the user.
 
 #### Reading File
 
+If an input file is received. Read it in line by line for parsing
+
+#### System Input
+
+If user input on console. Read in system input line by line.
+
 #### Parsing
 
 It was safe to determine that I can parse each of these lines into their correct "silo" of Driver or Trip. Yet I didnt want to simply create a new driver/trip object into my report processor everytime I needed to add a new one. So I create a DriverService and TripService class that would do that for me. When a line is parsed the parseLine method is called which will select the correct service to run.
@@ -79,11 +85,11 @@ To do this I first would like to be able to output this data on a file within a 
 
 ### DriverService class
 
-Created this class to add a driver to the drivers ArrayList. Simple service for adding new drivers when a parsed Driver line is given.
+Simple service for adding new drivers when a parsed Driver line is given.
 
 ### TripService class
 
-Created this class to add a driver's trip. This will look for the driver and see if the driverName in the parsed Trip line matches a driver in our drivers ArrayList
+Simple service that will add a trip to the designated driver. This will look for the driver and see if the driverName in the parsed Trip line matches a driver in our drivers ArrayList
 
 ### Driver class
 
