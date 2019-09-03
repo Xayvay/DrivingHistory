@@ -19,9 +19,9 @@ When running the appliction with an intellij built project. You would want to na
 
 * Navigate to the project director if you're not already there (i.e.: $somewhere/XavierShelton)
 * Navigate into Driving History Project Folder (i.e.: cd out/production/DrivingHistory)
-* From here you can either run:
-- java Main (This will run the application without arguments)
-- java Main $somefilelocation/somefile.txt (This will run the applcation with an input file)
+* From here you can run in the terminal or command prompt:
+   A. java Main (This will run the application without arguments)
+   B. java Main $somefilelocation/somefile.txt (This will run the applcation with an input file)
 
 # The Coding Process
 
