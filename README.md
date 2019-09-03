@@ -200,7 +200,7 @@ Many things.
 Beside creating the application with a DB,restcontrollers, etc.
 I could have:
 * Mapped the project out better. Architecture is key in this kind of assignment and sometimes it is hard to articulate what you want to accomplish.
-* Created cleaner code. I feel like I wanted to push myself into doing things that I basically didn't do. I used higher order functions in swift but I barely utilized the lambda notation and optionals in java. This cool but difficult to grasp at first.
+* Created cleaner code. I feel like I wanted to push myself into doing things that I basically didn't do. I used higher order functions in swift but I barely utilized the lambda notation and optionals in java. This was cool but very difficult to grasp at first.
 * Handling input. I really think its important to have a product owner or someone who is there to talk to you about what they need. When I initially started this project I read it as an input file is needed. With that being said, there are many times that one can miss interpret any kind of input as "this is me filing input" So I possibly created more than I should have, but I still covered all possibly scenarios that I could think of.
 * Test Cases. It is hard to think of everything that you should test. I mean if it feel like it works and you covered everything. You will ignore that you are possibly missing edge cases. I still feel like there are many edge cases that I could create. (i.e.: what if someone used negative time? like why would I test for that? Yet maybe I should)
 * Read Me. I have a scatter brain, so even though it is easy for me to explain my process. I ramble. A LOT!
