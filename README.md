@@ -29,7 +29,9 @@ I can make this application in two classes with about 4 methods and 300 lines of
 This was my initial thought, and to be honestly this was what I thought the first time I submitted this coding sample.
 Well this time I want to actually think this through.
 
-Thinking of past experiences, I have worked on different applications that delt with microservices. Which in short is building the applications as a collection of different smaller services rather than one whole app. Hmmm, without building a storing data,creating a restcontroller, and consuming the rest calls. I can treat the each object as their own service and call towards them and their methods when needed.
+From past experiences, I have worked on different applications that delt with microservices. Which in short is building the applications as a collection of different smaller services rather than one whole app. Hmmm, without building a database for storing data,creating a restcontroller to retrieve that data, and consuming the rest calls from the front end. How will I follow this process? Well I can treat each object as their own service and call towards them and their methods when needed. I can make it very similar to MVC where I have my model objects, my main view, and the services as controllers?
+
+WHY NOT BOTH?!
 
 Breaking this up the best way possible:
 
@@ -156,6 +158,50 @@ When I think about the driver they basically own the trips. The driver has trips
 This made it really easy for me to determine what I want in this class.
 * I need to get the driver report
 * Organize the drivers for output
-* PRINT ALL THE THINGS... or drivers.
+* PRINT ALL THE THINGS... I mean drivers.
+
+Completing this task was also very easy except for the record driver output method.
+I wanted to create the driver output at this moment. The problem is that I took a foreach look against each driver object.
+Then created a string buffer to append the output together.
+
+I DONT LIKE THIS!!
+
+Yet I am not quite sure how else I can accomplish what is needed.
+I also don't know if its more important to be threadsafe or fast. (I mean obviously safer is better)
+I went with StringBuffer instead of StringBuilder because being thread safe seemed more important.
 
 ### Main Class
+
+Now that im done, basically. My main class can check for what input is coming from the user. Either an input file or nothing.
+If the user inserts an input file path ending with .txt. The program will call our ivory tower ReportProcessorService.processReport(args[0]). This will call the fileReader method for reading files.
+If no input is provided. The application will call ReportProcessorService.processReport("") Which will trigger the systemInputReader.
+
+Run the code...
+
+GREAT SUCCESS!
+
+### Testing
+
+As explained previously, I have been building my test cases while simultaneously building my classes. This allowed me to know how well I was progressing in a successful manner.
+
+When creating my test cases. I first wanted to confirm that I was meeting the desired requirements. Good input, valid trips, good output.
+
+Then I tried to cover all edge cases (That I could think of). For example:
+* If the trip is at the end of the day will it go past 24 hours?
+* How well is the trip rounding if time is at :59 or :01?
+* Are we calculating correct input or throwing correct errors?
+
+Finally, since I am using intellij for my application. I was able to see how much test coverage I have. 
+I created as many test that I could, until my entire application was 100% method covered and 100% line covered.
+
+### What I Could Improve
+
+Many things.
+Beside creating the application with a DB,restcontrollers, etc.
+I could have:
+* Mapped the project out better. Architecture is key in this kind of assignment and sometimes it is hard to articulate what you want to accomplish.
+* Created cleaner code. I feel like I wanted to push myself into doing things that I basically didn't do. I used higher order functions in swift but I barely utilized the lambda notation and optionals in java. This cool but difficult to grasp at first.
+* Handling input. I really think its important to have a product owner or someone who is there to talk to you about what they need. When I initially started this project I read it as an input file is needed. With that being said, there are many times that one can miss interpret any kind of input as "this is me filing input" So I possibly created more than I should have, but I still covered all possibly scenarios that I could think of.
+* Test Cases. It is hard to think of everything that you should test. I mean if it feel like it works and you covered everything. You will ignore that you are possibly missing edge cases. I still feel like there are many edge cases that I could create. (i.e.: what if someone used negative time? like why would I test for that? Yet maybe I should)
+* Read Me. I have a scatter brain, so even though it is easy for me to explain my process. I ramble. A LOT!
+
