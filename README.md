@@ -3,6 +3,10 @@
 Driving History is a java application that can process input data based on a driver and the trips they take. Once processed the application will output driver data that contains the miles a driver has driven, and their average speed. If multiple driver information is provided. Then the application will output each driver with their information from descending order based on miles driven.
 
 # How To Deploy
+Driving History is wrapped into a .gitbundle
+You deploy this onto your computer by:
+* Getting the git bundle
+* 
 
 # How To Run
 FYI: I compiled the project with java jdk-12.0.2
