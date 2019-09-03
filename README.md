@@ -23,7 +23,7 @@ When running the appliction with an intellij built project. You would want to na
  From here you can run in the terminal or command prompt:
  
 * java Main (This will run the application without arguments, You will be able to insert a text file or correct driver data)
-* java Main $somefilelocation/somefile.txt (This will run the applcation with an input file)
+* java Main $somefilelocation/somefile.txt (This will run the applcation with an input file i.e.: java Main exampleInput.txt)
 
 # The Coding Process
 
