@@ -8,16 +8,16 @@ You deploy this onto your computer by:
 * Downloading the git bundle XavierSheltonDrivingHistory.gitbundle
 * Opening your command prompt (windows) or terminal (mac).
 * Navigating to the location that you want the repo to be located (i.e.: cd Desktop)
-* Run: git clone $somewhere/XavierSheltonDrivingHistory.gitbundle 
-(i.e.: git clone Downloads/XavierSheltonDrivingHistory.gitbundle)
-* Navigate to new repo location (i.e.: cd Desktop/XavierSheltonDrivingHistory.gitbundle)
+* Run: git clone $somewhere/XavierSheltonDrivingHistory 
+(i.e.: git clone Downloads/XavierSheltonDrivingHistory)
+* Navigate to new repo location (i.e.: cd Desktop/XavierSheltonDrivingHistory)
 
 # How To Run
 FYI: I compiled the project with java jdk-12.0.2
 
 When running the appliction with an intellij built project. You would want to navigate to the Main class within the production folder. From terminal or command prompt you want to:
 
-- Navigate to the project director if you're not already there (i.e.:cd $somewhere/XavierSheltonDrivingHistory.gitbundle)
+- Navigate to the project director if you're not already there (i.e.:cd $somewhere/XavierSheltonDrivingHistory)
 - Navigate into Driving History Project Folder (i.e.: cd out/production/DrivingHistory)
 
  From here you can run in the terminal or command prompt:
