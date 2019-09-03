@@ -17,11 +17,13 @@ FYI: I compiled the project with java jdk-12.0.2
 
 When running the appliction with an intellij built project. You would want to navigate to the Main class within the production folder. From terminal or command prompt you want to:
 
-* Navigate to the project director if you're not already there (i.e.: $somewhere/XavierShelton)
-* Navigate into Driving History Project Folder (i.e.: cd out/production/DrivingHistory)
-* From here you can run in the terminal or command prompt:
-   A. java Main (This will run the application without arguments)
-   B. java Main $somefilelocation/somefile.txt (This will run the applcation with an input file)
+- Navigate to the project director if you're not already there (i.e.: $somewhere/XavierShelton)
+- Navigate into Driving History Project Folder (i.e.: cd out/production/DrivingHistory)
+
+ From here you can run in the terminal or command prompt:
+ 
+* java Main (This will run the application without arguments, You will be able to insert a text file or correct driver data)
+* java Main $somefilelocation/somefile.txt (This will run the applcation with an input file)
 
 # The Coding Process
 
