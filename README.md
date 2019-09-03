@@ -5,11 +5,17 @@ Driving History is a java application that can process input data based on a dri
 # How To Deploy
 Driving History is wrapped into a .gitbundle
 You deploy this onto your computer by:
-* Getting the git bundle
-* 
+* Downloading the git bundle XavierSheltonDrivingHistory.gitbundle
+* Opening your command prompt (windows) or terminal (mac).
+* Navigating to the location that you want the repo to be located (i.e.: cd Desktop)
+* Run: git clone $somewhere/XavierSheltonDrivingHistory.gitbundle 
+(i.e.: git clone Downloads/XavierSheltonDrivingHistory.gitbundle)
+* NAvigate to new repo location (i.e.: cd Desktop)
 
 # How To Run
 FYI: I compiled the project with java jdk-12.0.2
+
+
 
 # The Coding Process
 
@@ -208,4 +214,4 @@ I could have:
 * Handling input. I really think its important to have a product owner or someone who is there to talk to you about what they need. When I initially started this project I read it as an input file is needed. With that being said, there are many times that one can miss interpret any kind of input as "this is me filing input" So I possibly created more than I should have, but I still covered all possibly scenarios that I could think of.
 * Test Cases. It is hard to think of everything that you should test. I mean if it feel like it works and you covered everything. You will ignore that you are possibly missing edge cases. I still feel like there are many edge cases that I could create. (i.e.: what if someone used negative time? like why would I test for that? Yet maybe I should)
 * Read Me. I have a scatter brain, so even though it is easy for me to explain my process. I ramble. A LOT!
-
+* Commits. I could have improved my commits in a more straight forward fashion of what functionality is within them.
