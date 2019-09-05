@@ -2,6 +2,29 @@
 
 Driving History is a java application that can process input data based on a driver and the trips they take. Once processed the application will output driver data that contains the miles a driver has driven, and their average speed. If multiple driver information is provided. Then the application will output each driver with their information from descending order based on miles driven.
 
+# How To Deploy
+Driving History is wrapped into a .gitbundle
+You deploy this onto your computer by:
+* Downloading the git bundle XavierSheltonDrivingHistory.gitbundle
+* Opening your command prompt (windows) or terminal (mac).
+* Navigating to the location that you want the repo to be located (i.e.: cd Desktop)
+* Run: git clone $somewhere/XavierSheltonDrivingHistory 
+(i.e.: git clone Downloads/XavierSheltonDrivingHistory)
+* Navigate to new repo location (i.e.: cd Desktop/XavierSheltonDrivingHistory)
+
+# How To Run
+FYI: I compiled the project with java jdk-12.0.2
+
+When running the appliction with an intellij built project. You would want to navigate to the Main class within the production folder. From terminal or command prompt you want to:
+
+- Navigate to the project director if you're not already there (i.e.:cd $somewhere/XavierSheltonDrivingHistory)
+- Navigate into Driving History Project Folder (i.e.: cd out/production/DrivingHistory)
+
+ From here you can run in the terminal or command prompt:
+ 
+* java Main (This will run the application without arguments, You will be able to insert a text file or correct driver data)
+* java Main $somefilelocation/somefile.txt (This will run the applcation with an input file i.e.: java Main exampleInput.txt)
+
 # Problem Statement
 
 Let's write some code to track driving history for people.
@@ -35,29 +58,6 @@ Expected output:
 Alex: 42 miles @ 34 mph
 Dan: 39 miles @ 47 mph
 Bob: 0 miles
-
-# How To Deploy
-Driving History is wrapped into a .gitbundle
-You deploy this onto your computer by:
-* Downloading the git bundle XavierSheltonDrivingHistory.gitbundle
-* Opening your command prompt (windows) or terminal (mac).
-* Navigating to the location that you want the repo to be located (i.e.: cd Desktop)
-* Run: git clone $somewhere/XavierSheltonDrivingHistory 
-(i.e.: git clone Downloads/XavierSheltonDrivingHistory)
-* Navigate to new repo location (i.e.: cd Desktop/XavierSheltonDrivingHistory)
-
-# How To Run
-FYI: I compiled the project with java jdk-12.0.2
-
-When running the appliction with an intellij built project. You would want to navigate to the Main class within the production folder. From terminal or command prompt you want to:
-
-- Navigate to the project director if you're not already there (i.e.:cd $somewhere/XavierSheltonDrivingHistory)
-- Navigate into Driving History Project Folder (i.e.: cd out/production/DrivingHistory)
-
- From here you can run in the terminal or command prompt:
- 
-* java Main (This will run the application without arguments, You will be able to insert a text file or correct driver data)
-* java Main $somefilelocation/somefile.txt (This will run the applcation with an input file i.e.: java Main exampleInput.txt)
 
 # The Coding Process
 
